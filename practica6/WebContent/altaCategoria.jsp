@@ -3,8 +3,7 @@
 <form
 	action="http://localhost:8080/practica6/CategoriaController?accion=guardar"
 	method="post">
-
-
+<!-- comentario  -->
 	<div class="contacto">
 		<center>
 			<h1>
