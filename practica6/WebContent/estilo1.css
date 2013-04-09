@@ -1,0 +1,221 @@
+#cssmenuh {
+	height: 40px;
+	display: block;
+	padding: 0;
+	margin: 0;
+	border: 1px solid;
+	border-radius: 5px;
+}
+
+#cssmenuh>ul {
+	list-style: inside none;
+	padding: 0;
+	margin: 0;
+}
+
+#cssmenuh>ul>li {
+	list-style: inside none;
+	padding: 0;
+	margin: 0;
+	float: left;
+	display: block;
+	position: relative;
+}
+
+#cssmenuh>ul>li>a {
+	outline: none;
+	display: block;
+	position: relative;
+	padding: 12px 20px;
+	font: bold 13px/100% Arial, Helvetica, sans-serif;
+	text-align: center;
+	text-decoration: none;
+	text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.4);
+}
+
+#cssmenuh>ul>li:first-child>a {
+	border-radius: 5px 0 0 5px;
+}
+
+#cssmenuh>ul>li>a:after {
+	content: '';
+	position: absolute;
+	border-right: 1px solid;
+	top: -1px;
+	bottom: -1px;
+	right: -2px;
+	z-index: 99;
+}
+
+#cssmenuh ul li.has-sub:hover>a:after {
+	top: 0;
+	bottom: 0;
+}
+
+#cssmenuh>ul>li.has-sub>a:before {
+	content: '';
+	position: absolute;
+	top: 18px;
+	right: 6px;
+	border: 5px solid transparent;
+	border-top: 5px solid #fff;
+}
+
+#cssmenuh>ul>li.has-sub:hover>a:before {
+	top: 19px;
+}
+
+#cssmenuh ul li.has-sub:hover>a {
+	background: #3f3f3f;
+	border-color: #3f3f3f;
+	padding-bottom: 13px;
+	padding-top: 13px;
+	top: -1px;
+	z-index: 999;
+}
+
+#cssmenuh ul li.has-sub:hover>ul,#cssmenu ul li.has-sub:hover>div {
+	display: block;
+}
+
+#cssmenuh ul li.has-sub>a:hover {
+	background: #3f3f3f;
+	border-color: #3f3f3f;
+}
+
+#cssmenuh ul li>ul,#cssmenu ul li>div {
+	display: none;
+	width: auto;
+	position: absolute;
+	top: 38px;
+	padding: 10px 0;
+	background: #3f3f3f;
+	border-radius: 0 0 5px 5px;
+	z-index: 999;
+}
+
+#cssmenuh ul li>ul {
+	width: 200px;
+}
+
+#cssmenuh ul li>ul li {
+	display: block;
+	list-style: inside none;
+	padding: 0;
+	margin: 0;
+	position: relative;
+}
+
+#cssmenuh ul li>ul li a {
+	outline: none;
+	display: block;
+	position: relative;
+	margin: 0;
+	padding: 8px 20px;
+	font: 10pt Arial, Helvetica, sans-serif;
+	color: #fff;
+	text-decoration: none;
+	text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.5);
+}
+
+#cssmenuh,#cssmenuh>ul>li>ul>li a:hover {
+	background: #000033;
+	background: -moz-linear-gradient(top, #000033 0%, #45b2d2 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #000033),
+		color-stop(100%, #45b2d2) );
+	background: -webkit-linear-gradient(top, #000033 0%, #45b2d2 100%);
+	background: -o-linear-gradient(top, #000033 0%, #45b2d2 100%);
+	background: -ms-linear-gradient(top, #000033 0%, #45b2d2 100%);
+	background: linear-gradient(top, #000033 0%, #45b2d2 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#000033',
+		endColorstr='#45b2d2', GradientType=0 );
+}
+
+#cssmenuh {
+	border-color: #000033;
+}
+
+#cssmenuh>ul>li>a {
+	border-right: 1px solid #000033;
+	color: #fff;
+}
+
+#cssmenuh>ul>li>a:after {
+	border-color: #3f3f3f;
+}
+
+#cssmenuh>ul>li>a:hover {
+	background: #3f3f3f;
+}
+
+
+
+
+#cssmenuv {
+	font: bold 15px/100% Arial, Helvetica, sans-serif;
+	color:#fff;
+	text-align: center;
+	border: 1px solid;
+	border-radius: 5px;
+	display: block;
+	float: left;
+	width: 100px;
+	height: 30em;
+	background-position: center;
+	padding: 10px 90px 1em 0;
+	margin-bottom: 2em;
+	margin: 20px;
+	border-right: 2px solid silver;
+}
+
+#cssmenuv>ul>li>a {
+	display: block;
+	position: relative;
+	padding: 15px 25px;
+	font: bold 13px/100% Arial, Helvetica, sans-serif;
+	text-align: center;
+	text-shadow: 1px 1px 0 rgba(0, 0, 0, 255);
+}
+
+#cssmenuv ul li>ul li a {
+	outline: silver;
+	display: block;
+	position: relative;
+	margin: 0;
+	padding: 8px 20px;
+	font: 10pt Arial, Helvetica, sans-serif;
+	color: #fff;
+	text-decoration: none;
+	text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.5);
+}
+
+#cssmenuv,#cssmenuv>ul>li>ul>li a:hover {
+	background: #000033;
+	background: -moz-linear-gradient(top, #000033 0%, #45b2d2 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #000033),
+		color-stop(100%, #45b2d2) );
+	background: -webkit-linear-gradient(top, #000033 0%, #45b2d2 100%);
+	background: -o-linear-gradient(top, #000033 0%, #45b2d2 100%);
+	background: -ms-linear-gradient(top, #000033 0%, #45b2d2 100%);
+	background: linear-gradient(top, #000033 0%, #45b2d2 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#000033',
+		endColorstr='#45b2d2', GradientType=0 );
+}
+
+#cssmenuv {
+	border-color: #000033;
+}
+
+#cssmenuv>ul>li>a {
+	border-bottom: 1px solid #000033;
+	width: 100px;
+	color: #fff;
+	text-decoration: none;	
+}
+
+
+#cssmenuv>ul>li>a:hover {
+	background: #3f3f3f;
+	width: 100px;;
+}
+
