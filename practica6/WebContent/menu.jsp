@@ -84,7 +84,7 @@
 													<h6>
 														<span>Total:<c:out value="${sessionScope.total}"></c:out></span>
 													</h6>
-
+												</div>
 											</form>
 										</ul>
 										<br>
