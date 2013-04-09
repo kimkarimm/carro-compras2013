@@ -6,7 +6,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import modelo.Comprado;
 import modelo.Pedido;
 import modelo.Producto;
 import modelo.Usuario;
@@ -114,7 +113,7 @@ public class UsuarioDao extends ManejadorDB {
 		PreparedStatement sentencia = con.prepareStatement(sql);
 		ResultSet datos = sentencia.executeQuery();
 		Usuario u = new Usuario();
-		if (datos.next()) {
+		if(datos.next()) {
 			u.setId(datos.getInt("id"));
 			u.setNombre(datos.getString("nombre"));
 			u.setApellido(datos.getString("apellido"));
@@ -129,14 +128,14 @@ public class UsuarioDao extends ManejadorDB {
 			PreparedStatement sent = con.prepareStatement(sql2);
 			ResultSet datos2 = sent.executeQuery();
 			Pedido ped = new Pedido();
-			while (datos2.next()) {
+			while(datos2.next()) {
 				ped.setId(datos2.getInt("id"));
 				ped.setFechaPedido(datos2.getString("fecha_pedido"));
 				ped.setEstado(datos2.getString("estado"));
 				ped.setFechaEntrega(datos2.getString("fecha_entrega"));
 				ped.setUsuario(u);
-				ArrayList<Comprado> productos = new ArrayList<Comprado>();
-				sql = "SELECT producto_id, cantidad FROM pedido_has_producto WHERE pedido_id="
+				ArrayList<Producto> productos = new ArrayList<Producto>();
+				sql = "SELECT producto_id FROM pedido_has_producto WHERE pedido_id="
 						+ ped.getId();
 				sentencia = con.prepareStatement(sql);
 				ResultSet idProductos = sentencia.executeQuery();
@@ -144,12 +143,9 @@ public class UsuarioDao extends ManejadorDB {
 				while (idProductos.next()) {
 					Producto producto = new Producto();
 					producto = pDao.buscar(idProductos.getInt("producto_id"));
-					Comprado comprado = new Comprado(producto.getId(),
-							producto.getNombre(), producto.getPrecio(),
-							idProductos.getInt("cantidad"));
-					productos.add(comprado);
+					productos.add(producto);
 				}
-				ped.setProductos(productos);
+			ped.setProductos(productos);
 			}
 			u.setPedidos(pedidos);
 		}

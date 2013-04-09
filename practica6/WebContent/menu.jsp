@@ -25,7 +25,7 @@
 		<div id="header" class="clearfix">
 			<div class="h_left"></div>
 			<center>
-				<a><img src="encabezado1.jpg.png" alt="" class="logo"></a>
+<!-- 				<a><img src="encabezado1.jpg.png" alt="" class="logo"></a> -->
 			</center>
 			<div class="titulo">
 				<h1 align="center"></h1>
@@ -71,7 +71,7 @@
 									</div>
 								</div>
 								<div class="cont_menu">
-									<div class="MENU2">
+									<div id="carrito">
 										<h3>
 											<span>Carrito</span>
 										</h3>
@@ -80,9 +80,11 @@
 												<c:forEach var="comp" items="${sessionScope.comprados}">
 													<li><c:out value="${comp.nombre}" /></li>
 												</c:forEach>
-												<h6>
-													<span>Total:<c:out value="${sessionScope.total}"></c:out></span>
-												</h6>
+												<div id='postotal'>
+													<h6>
+														<span>Total:<c:out value="${sessionScope.total}"></c:out></span>
+													</h6>
+
 											</form>
 										</ul>
 										<br>

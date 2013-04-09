@@ -118,7 +118,7 @@
 	text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.5);
 }
 
-#cssmenuh,#cssmenuh>ul>li>ul>li a:hover {
+#cssmenuh,#cssmenuv,#carrito {
 	background: #000033;
 	background: -moz-linear-gradient(top, #000033 0%, #45b2d2 100%);
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #000033),
@@ -148,19 +148,37 @@
 	background: #3f3f3f;
 }
 
-
-
+#carrito {
+	float: right;
+}
 
 #cssmenuv {
+	float: left;
+}
+
+#postotal {
+	position: absolute;
+	width: 80px;
+	height: 30px;
+	padding: 2px 2px 2px 2px;
+	background-color: #000033;
+	bottom: 40px;
+	right: 90px; 
+}
+
+#cssmenuv span{
+	text-align: center;
+}
+
+#cssmenuv,#carrito {
 	font: bold 15px/100% Arial, Helvetica, sans-serif;
-	color:#fff;
+	color: #fff;
 	text-align: center;
 	border: 1px solid;
 	border-radius: 5px;
-	display: block;
-	float: left;
+	display: inline;
 	width: 100px;
-	height: 30em;
+	height: 500px;
 	background-position: center;
 	padding: 10px 90px 1em 0;
 	margin-bottom: 2em;
@@ -168,7 +186,7 @@
 	border-right: 2px solid silver;
 }
 
-#cssmenuv>ul>li>a {
+#cssmenuv>ul>li>a,#carrito>ul>li>a {
 	display: block;
 	position: relative;
 	padding: 15px 25px;
@@ -177,7 +195,7 @@
 	text-shadow: 1px 1px 0 rgba(0, 0, 0, 255);
 }
 
-#cssmenuv ul li>ul li a {
+#cssmenuv ul li>ul li a,#carrito ul li>ul li a {
 	outline: silver;
 	display: block;
 	position: relative;
@@ -189,33 +207,18 @@
 	text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.5);
 }
 
-#cssmenuv,#cssmenuv>ul>li>ul>li a:hover {
-	background: #000033;
-	background: -moz-linear-gradient(top, #000033 0%, #45b2d2 100%);
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #000033),
-		color-stop(100%, #45b2d2) );
-	background: -webkit-linear-gradient(top, #000033 0%, #45b2d2 100%);
-	background: -o-linear-gradient(top, #000033 0%, #45b2d2 100%);
-	background: -ms-linear-gradient(top, #000033 0%, #45b2d2 100%);
-	background: linear-gradient(top, #000033 0%, #45b2d2 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#000033',
-		endColorstr='#45b2d2', GradientType=0 );
-}
-
-#cssmenuv {
+#cssmenuv,#carrito {
 	border-color: #000033;
 }
 
-#cssmenuv>ul>li>a {
+#cssmenuv>ul>li>a,#carrito>ul>li>a {
 	border-bottom: 1px solid #000033;
 	width: 100px;
 	color: #fff;
-	text-decoration: none;	
+	text-decoration: none;
 }
 
-
-#cssmenuv>ul>li>a:hover {
+#cssmenuv>ul>li>a:hover,#carrito>ul>li>a:hover {
 	background: #3f3f3f;
 	width: 100px;;
 }
-
