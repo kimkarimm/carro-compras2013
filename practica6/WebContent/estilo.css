@@ -48,7 +48,7 @@ li.horizontal {
 }
 
 #main_navi {
-	float: left;
+/* 	float: left; */
 	width: 100%;
 	background: url("bg.JPG") repeat-x scroll 0% 0% rgb(17, 4, 114)
 		font-size:         93%;
@@ -163,6 +163,7 @@ li.horizontal {
 
 .clearfix .fl {
 	text-decoration: none;
+	float: right;
 	/*border-bottom: 1px solid silver;*/
 	margin: 25px;
 	padding: 5px 0px 0px 0px;
