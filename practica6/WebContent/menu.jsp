@@ -25,7 +25,7 @@
 		<div id="header" class="clearfix">
 			<div class="h_left"></div>
 			<center>
-<!-- 				<a><img src="encabezado1.jpg.png" alt="" class="logo"></a> -->
+				<!-- 				<a><img src="encabezado1.jpg.png" alt="" class="logo"></a> -->
 			</center>
 			<div class="titulo">
 				<h1 align="center"></h1>
@@ -54,7 +54,7 @@
 						<div id="sidebar">
 							<div class="sidebar_top">
 								<div class="cont_menu">
-									<div  id='cssmenuv'>
+									<div id='cssmenuv'>
 										<h3>
 											<span>Categorias</span>
 										</h3>
@@ -85,7 +85,6 @@
 														<span>Total:<c:out value="${sessionScope.total}"></c:out></span>
 													</h6>
 												</div>
-											</form>
 										</ul>
 										<br>
 										<c:if test="${sessionScope.usuario.permisos != null}">
@@ -95,4 +94,5 @@
 											</div>
 										</c:if>
 									</div>
+									</form>
 								</div>
