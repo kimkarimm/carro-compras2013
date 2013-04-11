@@ -3,10 +3,10 @@ body {
 }
 
 #header {
+	
 	width: auto;
 }
 
-/*borde de encabezado*/
 .h_left {
 	height: 0px;
 	width: 0px;
@@ -65,8 +65,6 @@ li.horizontal {
 	border: 2px solid silver;
 }
 
-
-
 .MENU{
 	
 }
@@ -74,8 +72,6 @@ li.horizontal {
 .MENU2{
 	
 }
-
-
 
 .clearfix .fl {
 	text-decoration: none;
@@ -90,17 +86,15 @@ li.horizontal {
 }
 
 .contacto {
-	
 	display: inline;
 	background-position: center;
 	border: 1px solid #3f3f3f;
-	border-radius: 6px;
+	border-radius: 5px;
 	padding: 20px;
-	width: 760px;
-	float: right;
+	width: 57%;
+	float: left;
 	height: 29em;
-	margin-top: 2.5em;
-	margin: 25px;
+	margin: 30px 5px 0px 5px;
 	background-color: white;
 	box-shadow: 0px 1px 5px #B5C1C5, 0 0 0 2px #000033 inset;	
 }
@@ -163,8 +157,22 @@ li.horizontal {
 	background: #3d3d3d;
 }
 
-#posLogin {
+#posLogin{
 	float: right;
+}
+
+#posComprar {
+	float: right;
+	height: 40px;
+	display: block;
+	padding: 0;
+	margin: 0;
+	border: 1px solid;
+	border-radius: 5px;
+}	
+
+#posLogin, #posComprar {
+	display: block;
 	background: #c4000d;
 	background: -webkit-gradient(linear, left top, left bottom, from(#5e050c),
 		to(#c4000d) );
@@ -186,7 +194,3 @@ li.horizontal {
 	text-decoration: none;
 	vertical-align: middle;
 }
-
-/*html>body.MENU li a {
-		width: auto;
-		}*/
