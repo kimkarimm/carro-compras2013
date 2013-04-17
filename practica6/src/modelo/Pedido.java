@@ -8,30 +8,29 @@ public class Pedido {
 	String fechaEntrega;
 	String estado;
 	Usuario usuario;
-	ArrayList<Producto> productos;
+	ArrayList<Comprado> productos;
 
 	public Pedido() {
 		super();
 	}
 
-	public Pedido(String fechaPedido2, String fechaEntrega2,
-			String estado, Usuario usuario, ArrayList<Producto> productos) {
+	public Pedido(String fechaPedido2, String fechaEntrega2, Usuario usuario,
+			ArrayList<Comprado> productos) {
 		super();
 		this.fechaPedido = fechaPedido2;
 		this.fechaEntrega = fechaEntrega2;
-		this.estado = estado;
+		this.estado = "pendiente";
 		this.usuario = usuario;
 		this.productos = productos;
 	}
 
-	public Pedido(int id, String fechaPedido2,
-			String fechaEntrega2, String estado, Usuario usuario,
-			ArrayList<Producto> productos) {
+	public Pedido(int id, String fechaPedido2, String fechaEntrega2,
+			Usuario usuario, ArrayList<Comprado> productos) {
 		super();
 		this.id = id;
 		this.fechaPedido = fechaPedido2;
 		this.fechaEntrega = fechaEntrega2;
-		this.estado = estado;
+		this.estado = "pendiente";
 		this.usuario = usuario;
 		this.productos = productos;
 	}
@@ -76,11 +75,11 @@ public class Pedido {
 		this.usuario = usuario;
 	}
 
-	public ArrayList<Producto> getProductos() {
+	public ArrayList<Comprado> getProductos() {
 		return productos;
 	}
 
-	public void setProductos(ArrayList<Producto> productos) {
+	public void setProductos(ArrayList<Comprado> productos) {
 		this.productos = productos;
 	}
 

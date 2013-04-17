@@ -3,11 +3,13 @@ package clasesDAO;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
 import baseDAO.ManejadorDB;
 
+import modelo.Comprado;
 import modelo.Pedido;
 import modelo.Producto;
 import modelo.Usuario;
@@ -30,17 +32,21 @@ public class PedidoDao extends ManejadorDB {
 				+ p.getFechaEntrega()
 				+ "', "
 				+ p.getUsuario().getId() + ");";
-		PreparedStatement sentencia = con.prepareStatement(sql);
+		PreparedStatement sentencia = con.prepareStatement(sql,
+				Statement.RETURN_GENERATED_KEYS);
+		sentencia.executeUpdate();
 		ResultSet keys = sentencia.getGeneratedKeys();
 		keys.next();
 		int id = keys.getInt(1);
-		int n = 0;
-		while (n < p.getProductos().size()) {
-			sql = "INSERT INTO pedido_has_producto (pedido_id, producto_id) VALUES ("
-					+ id + ", " + p.getProductos().get(n) + ");";
+		for (Comprado comprado : p.getProductos()) {
+			sql = "INSERT INTO pedido_has_producto (pedido_id, producto_id, cantidad) VALUES ("
+					+ id
+					+ ", "
+					+ comprado.getId()
+					+ ", "
+					+ comprado.getCantidad() + ");";
 			sentencia = con.prepareStatement(sql);
 			sentencia.executeUpdate();
-			n++;
 		}
 		this.cerrarConexion();
 	}
@@ -61,7 +67,7 @@ public class PedidoDao extends ManejadorDB {
 			p.setEstado(datos.getString("estado"));
 			p.setFechaEntrega(datos.getString("fecha_entrega"));
 			p.setUsuario(u);
-			ArrayList<Producto> prods = new ArrayList<Producto>();
+			ArrayList<Comprado> prods = new ArrayList<Comprado>();
 			sql = "SELECT producto_id FROM pedido_has_producto WHERE pedido_id="
 					+ p.getId();
 			sentencia = con.prepareStatement(sql);
@@ -70,7 +76,10 @@ public class PedidoDao extends ManejadorDB {
 				Producto product = new Producto();
 				ProductoDao pDao = new ProductoDao();
 				product = pDao.buscar(idProductos.getInt("id_producto"));
-				prods.add(product);
+				Comprado comprado = new Comprado(product.getId(),
+						product.getNombre(), product.getPrecio(),
+						idProductos.getInt("cantidad"));
+				prods.add(comprado);
 			}
 			p.setProductos(prods);
 			ped.add(p);
@@ -130,8 +139,8 @@ public class PedidoDao extends ManejadorDB {
 			ped.setEstado(datos.getString("estado"));
 			ped.setFechaEntrega(datos.getString("fecha_entrega"));
 			ped.setUsuario(u);
-			ArrayList<Producto> prods = new ArrayList<Producto>();
-			sql = "SELECT producto_id FROM pedido_has_producto WHERE pedido_id="
+			ArrayList<Comprado> prods = new ArrayList<Comprado>();
+			sql = "SELECT producto_id, cantidad FROM pedido_has_producto WHERE pedido_id="
 					+ ped.getId();
 			sentencia = con.prepareStatement(sql);
 			ResultSet idProductos = sentencia.executeQuery();
@@ -139,7 +148,10 @@ public class PedidoDao extends ManejadorDB {
 			while (idProductos.next()) {
 				Producto product = new Producto();
 				product = pDao.buscar(idProductos.getInt("producto_id"));
-				prods.add(product);
+				Comprado comprado = new Comprado(product.getId(),
+						product.getNombre(), product.getPrecio(),
+						idProductos.getInt("cantidad"));
+				prods.add(comprado);
 			}
 			ped.setProductos(prods);
 		}

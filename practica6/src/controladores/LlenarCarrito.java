@@ -45,8 +45,9 @@ public class LlenarCarrito extends HttpServlet {
 						.toString(producto.getId()))));
 				if (cantidad != 0) {
 					total = total + (producto.getPrecio() * cantidad);
-					Comprado comprado = new Comprado(producto.getNombre(),
-							producto.getPrecio(), cantidad);
+					Comprado comprado = new Comprado(producto.getId(),
+							producto.getNombre(), producto.getPrecio(),
+							cantidad);
 					comprados.add(comprado);
 				}
 			}

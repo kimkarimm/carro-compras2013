@@ -11,10 +11,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import modelo.Comprado;
 import modelo.Pedido;
 import modelo.Producto;
 import modelo.Usuario;
 import clasesDAO.PedidoDao;
+import clasesDAO.ProductoDao;
 import clasesDAO.UsuarioDao;
 
 /**
@@ -52,7 +54,7 @@ public class PedidoController extends HttpServlet {
 				getServletContext().getRequestDispatcher("/listaPedidos.jsp")
 						.forward(request, response);
 			} else if (accion.equals("buscar")) {
-				HttpSession sesion= request.getSession();
+				HttpSession sesion = request.getSession();
 				PedidoDao daopedidos = new PedidoDao();
 				int id = Integer.parseInt(request.getParameter("pedido"));
 				Pedido pedido = daopedidos.buscar(id);
@@ -73,18 +75,27 @@ public class PedidoController extends HttpServlet {
 				int idusuario = Integer.parseInt(request
 						.getParameter("usuario"));
 				Usuario usuario = daousuario.buscar(idusuario);
-				String fechaPedido = new String(request.getParameter("fechaPedido"));
+				String fechaPedido = new String(
+						request.getParameter("fechaPedido"));
 				String fechaEntrega = new String(
 						request.getParameter("fechaEntrega"));
-				ArrayList<Producto> productos = new ArrayList<>();
-				productos = (ArrayList<Producto>) sesion
+				ArrayList<Comprado> comprados = new ArrayList<>();
+				comprados = (ArrayList<Comprado>) sesion
 						.getAttribute("comprados");
-				Pedido pedido = new Pedido(fechaPedido, fechaEntrega, estado,
-						usuario, productos);
+				Pedido pedido = new Pedido(fechaPedido, fechaEntrega, usuario,
+						comprados);
 				daopedido.guardar(pedido);
-				getServletContext()
-						.getRequestDispatcher("/listarProductos.jsp").forward(
-								request, response);
+				ProductoDao daoproducto = new ProductoDao();
+				ArrayList<Producto> productos = new ArrayList<>();
+				for (Comprado comprado : comprados) {
+					Producto producto = new Producto();
+					int id = comprado.getId();
+					producto = daoproducto.buscar(id);
+					productos.add(producto);
+				}
+				sesion.setAttribute("productos", productos);
+				getServletContext().getRequestDispatcher("/facturar.jsp")
+						.forward(request, response);
 			} else if (accion.equals("eliminar")) {
 				PedidoDao daopedido = new PedidoDao();
 				int id = Integer.parseInt(request.getParameter("pedido"));
@@ -101,9 +112,10 @@ public class PedidoController extends HttpServlet {
 				String fechaEntrega = new String(
 						request.getParameter("fechaEntrega"));
 				pedido.setFechaEntrega(fechaEntrega);
-				String fechaPedido = new String(request.getParameter("fechaPedido"));
+				String fechaPedido = new String(
+						request.getParameter("fechaPedido"));
 				pedido.setFechaPedido(fechaPedido);
-				ArrayList<Producto> productos = (ArrayList<Producto>) sesion
+				ArrayList<Comprado> productos = (ArrayList<Comprado>) sesion
 						.getAttribute("productos");
 				pedido.setProductos(productos);
 				daopedido.modificar(pedido);
