@@ -63,17 +63,21 @@ public class CategoriaController extends HttpServlet {
 					out.close();
 				}
 			} else if (accion.equals("guardar")) {
-				HttpSession sesion= request.getSession();
+				HttpSession sesion = request.getSession();
 				CategoriaDao daocategoria = new CategoriaDao();
 				String nombre = request.getParameter("nombre");
 				Categoria categoria = new Categoria(nombre);
-				daocategoria.guardar(categoria);
-				List<Categoria> listaCategoria = daocategoria.listar();
-				sesion.setAttribute("listaCategorias", listaCategoria);
-				getServletContext().getRequestDispatcher("/altaCategoria.jsp")
-						.forward(request, response);
+				if (!daocategoria.guardar(categoria)) {
+					sesion.setAttribute("cargada", true);
+				} else {
+					List<Categoria> listaCategoria = daocategoria.listar();
+					sesion.setAttribute("encontrada", true);
+					sesion.setAttribute("listaCategorias", listaCategoria);
+					getServletContext().getRequestDispatcher(
+							"/altaCategoria.jsp").forward(request, response);
+				}
 			} else if (accion.equals("eliminar")) {
-				HttpSession sesion= request.getSession();
+				HttpSession sesion = request.getSession();
 				CategoriaDao daocategoria = new CategoriaDao();
 				int id = Integer.parseInt(request.getParameter("categoria"));
 				Categoria categoria = daocategoria.buscar(id);
@@ -84,7 +88,7 @@ public class CategoriaController extends HttpServlet {
 						.getRequestDispatcher("/listaCategorias.jsp").forward(
 								request, response);
 			} else if (accion.equals("modificar")) {
-				HttpSession sesion= request.getSession();
+				HttpSession sesion = request.getSession();
 				CategoriaDao daocategoria = new CategoriaDao();
 				Categoria categoria = daocategoria.buscar(Integer
 						.parseInt(request.getParameter("categoria")));
@@ -92,8 +96,9 @@ public class CategoriaController extends HttpServlet {
 				daocategoria.modificar(categoria);
 				List<Categoria> listaCategoria = daocategoria.listar();
 				sesion.setAttribute("listaCategorias", listaCategoria);
-				getServletContext().getRequestDispatcher(
-						"/listaCategorias.jsp").forward(request, response);
+				getServletContext()
+						.getRequestDispatcher("/listaCategorias.jsp").forward(
+								request, response);
 			}
 		} catch (Exception error) {
 			error.printStackTrace();
