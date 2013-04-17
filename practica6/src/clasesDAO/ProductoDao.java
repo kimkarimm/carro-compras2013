@@ -40,7 +40,7 @@ public class ProductoDao extends ManejadorDB {
 					+ p.getCategoria().getId()
 					+ ");";
 			sentencia = con.prepareStatement(sql);
-			int i = sentencia.executeUpdate();
+			sentencia.executeUpdate();
 			this.cerrarConexion();
 			return true;
 		}
