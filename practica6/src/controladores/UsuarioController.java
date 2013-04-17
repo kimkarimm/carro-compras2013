@@ -66,6 +66,7 @@ public class UsuarioController extends HttpServlet {
 				getServletContext().getRequestDispatcher(
 						"/modificarUsuario.jsp").forward(request, response);
 			} else if (accion.equals("guardar")) {
+				HttpSession sesion = request.getSession();
 				UsuarioDao daousuario = new UsuarioDao();
 				String nombre = request.getParameter("nombre");
 				String apellido = request.getParameter("apellido");
@@ -75,9 +76,14 @@ public class UsuarioController extends HttpServlet {
 				ArrayList<Pedido> pedidos = new ArrayList<>();
 				Usuario usuario = new Usuario(nombre, apellido, mail,
 						nomusuario, password, pedidos);
-				daousuario.guardar(usuario);
-				getServletContext().getRequestDispatcher("/altaUsuario.jsp")
-						.forward(request, response);
+				if (!daousuario.guardar(usuario)) {
+					sesion.setAttribute("cargado", false);
+				} else {
+					sesion.setAttribute("cargado", true);
+					getServletContext()
+							.getRequestDispatcher("/altaUsuario.jsp").forward(
+									request, response);
+				}
 			} else if (accion.equals("eliminar")) {
 				HttpSession sesion = request.getSession();
 				UsuarioDao daousuario = new UsuarioDao();
