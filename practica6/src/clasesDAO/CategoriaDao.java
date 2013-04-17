@@ -18,11 +18,10 @@ public class CategoriaDao extends ManejadorDB {
 
 	public boolean guardar(Categoria c) throws SQLException {
 		this.conectarDB();
-		String sql = "SELECT id FROM categoria WHERE (nombre='" + c.getNombre()
-				+ "');";
+		String sql = "SELECT id FROM categoria WHERE nombre='" + c.getNombre() + "'";
 		PreparedStatement sentencia = con.prepareStatement(sql);
 		ResultSet datos = sentencia.executeQuery();
-		if (datos == null) {
+		if (datos.next()) {
 			this.cerrarConexion();
 			return false;
 		} else {
