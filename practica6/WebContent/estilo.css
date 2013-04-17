@@ -3,7 +3,6 @@ body {
 }
 
 #header {
-	
 	width: auto;
 }
 
@@ -47,11 +46,10 @@ li.horizontal {
 	display: block;
 }
 
-#main_navi {
-/* 	float: left; */
+#main_navi { /* 	float: left; */
 	width: 100%;
 	background: url("bg.JPG") repeat-x scroll 0% 0% rgb(17, 4, 114)
-		font-size:         93%;
+		font-size:          93%;
 	line-height: normal;
 }
 
@@ -65,11 +63,11 @@ li.horizontal {
 	border: 2px solid silver;
 }
 
-.MENU{
+.MENU {
 	
 }
 
-.MENU2{
+.MENU2 {
 	
 }
 
@@ -93,10 +91,10 @@ li.horizontal {
 	padding: 20px;
 	width: 57%;
 	float: left;
-	height: 29em;
+	min-height: 29em;
 	margin: 30px 5px 0px 5px;
 	background-color: white;
-	box-shadow: 0px 1px 5px #B5C1C5, 0 0 0 2px #000033 inset;	
+	box-shadow: 0px 1px 5px #B5C1C5, 0 0 0 2px #000033 inset;
 }
 
 .contacto label {
@@ -108,78 +106,51 @@ li.horizontal {
 	margin-bottom: 15px;
 }
 
-.contacto input[type='text'],.contacto textarea {
-	padding: 7px 6px;
-	width: 294px;
-	border: 1px solid #CED5D7;
-	resize: none;
-	box-shadow: 0 0 0 3px #EEF5F7;
-	margin: 5px 0;
-}
-
-.contacto input[type='text']:focus,.contacto textarea:focus {
-	outline: none;
-	box-shadow: 0 0 0 3px #dde9ec;
-}
-
 .contacto input[type='submit'] {
-	background: #c4000d;
-	background: -webkit-gradient(linear, left top, left bottom, from(#5e050c),
-		to(#c4000d) );
-	background: -webkit-linear-gradient(top, #5e050c, #c4000d);
-	background: -moz-linear-gradient(top, #5e050c, #c4000d);
-	background: -ms-linear-gradient(top, #5e050c, #c4000d);
-	background: -o-linear-gradient(top, #5e050c, #c4000d);
-	padding: 5px 10px;
-	-webkit-border-radius: 8px;
-	-moz-border-radius: 8px;
-	border-radius: 8px;
-	-webkit-box-shadow: rgba(0, 0, 0, 1) 0 1px 0;
-	-moz-box-shadow: rgba(0, 0, 0, 1) 0 1px 0;
-	box-shadow: rgba(0, 0, 0, 1) 0 1px 0;
-	text-shadow: rgba(0, 0, 0, .4) 0 1px 0;
-	color: white;
-	font-size: 14px;
-	font-family: Georgia, serif;
-	text-decoration: none;
-	vertical-align: middle;
+	border: 1px solid #CED5D7;
+	box-shadow: 0 0 0 3px #EEF5F7;
+	padding: 8px 16px;
+	border-radius: 20px;
+	font-weight: bold;
+	text-shadow: 1px 1px 0px white;
+	background: #e4f1f6;
+	/* fallback para navegadores que no soporten degradados */
+	background: -moz-linear-gradient(top, #e4f1f6 0%, #cfe6ef 100%);
+	background: -webkit-linear-gradient(top, #e4f1f6 0%, #cfe6ef 100%);
 }
+/* .contacto input[type='submit']:hover{ */
+/*     background: #edfcff; */
+/*     background: -moz-linear-gradient(top, #edfcff 0%, #cfe6ef 100%); */
+/*     background: -webkit-linear-gradient(top, #edfcff 0%,#cfe6ef 100%); */
+/* } */
+/* .contacto input[type='submit']:active{ */
+/*     background: #cfe6ef; */
+/*     background: -moz-linear-gradient(top, #cfe6ef 0%, #edfcff 100%); */
+/*     background: -webkit-linear-gradient(top, #cfe6ef 0%,#edfcff 100%); */
+/* } */
 
-}
-.contacto input[type='submit']:hover {
-	border-top-color: #373c40;
-	background: #373c40;
-	color: #ffffff;
-}
+/* .contacto input[type='text'],.contacto textarea { */
+/* 	padding: 7px 6px; */
+/* 	width: 294px; */
+/* 	border: 1px solid #CED5D7; */
+/* 	resize: none; */
+/* 	box-shadow: 0 0 0 3px #EEF5F7; */
+/* 	margin: 5px 0; */
+/* } */
 
-.contacto input[type='submit']:active {
-	border-top-color: #3d3d3d;
-	background: #3d3d3d;
-}
-
-#posLogin{
-	float: right;
-}
-
-#posComprar {
-	float: right;
-	height: 40px;
+/* .contacto input[type='text']:focus,.contacto textarea:focus { */
+/* 	outline: none; */
+/* 	box-shadow: 0 0 0 3px #dde9ec; */
+/* } */
+.contacto input[type='submit'] {
 	display: block;
-	padding: 0;
-	margin: 0;
-	border: 1px solid;
-	border-radius: 5px;
-}	
-
-#posLogin, #posComprar {
-	display: block;
-	background: #c4000d;
-	background: -webkit-gradient(linear, left top, left bottom, from(#5e050c),
-		to(#c4000d) );
-	background: -webkit-linear-gradient(top, #5e050c, #c4000d);
-	background: -moz-linear-gradient(top, #5e050c, #c4000d);
-	background: -ms-linear-gradient(top, #5e050c, #c4000d);
-	background: -o-linear-gradient(top, #5e050c, #c4000d);
+	background: #6B6868;
+	background: -webkit-gradient(linear, left top, left bottom, from(#444343),
+		to(#171616) );
+	background: -webkit-linear-gradient(top, #444343, #171616);
+	background: -moz-linear-gradient(top, #444343, #171616);
+	background: -ms-linear-gradient(top, #444343, #171616);
+	background: -o-linear-gradient(top, #444343, #171616);
 	padding: 5px 5px;
 	-webkit-border-radius: 8px;
 	-moz-border-radius: 8px;
@@ -193,4 +164,97 @@ li.horizontal {
 	font-family: Georgia, serif;
 	text-decoration: none;
 	vertical-align: middle;
+}
+
+/* } */
+/* .contacto input[type='submit']:hover { */
+/* 	border-top-color: #373c40; */
+/* 	background: #373c40; */
+/* 	color: #ffffff; */
+/* } */
+
+/* .contacto input[type='submit']:active { */
+/* 	border-top-color: #3d3d3d; */
+/* 	background: #3d3d3d; */
+/* } */
+#posLogin {
+	float: right;
+}
+
+#posComprar {
+	bottom: 23em;
+}
+
+#posLogin,#posComprar {
+	display: block;
+	background: #6B6868;
+	background: -webkit-gradient(linear, left top, left bottom, from(#444343),
+		to(#171616) );
+	background: -webkit-linear-gradient(top, #444343, #171616);
+	background: -moz-linear-gradient(top, #444343, #171616);
+	background: -ms-linear-gradient(top, #444343, #171616);
+	background: -o-linear-gradient(top, #444343, #171616);
+	padding: 5px 5px;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+	-webkit-box-shadow: rgba(0, 0, 0, 1) 0 1px 0;
+	-moz-box-shadow: rgba(0, 0, 0, 1) 0 1px 0;
+	box-shadow: rgba(0, 0, 0, 1) 0 1px 0;
+	text-shadow: rgba(0, 0, 0, .4) 0 1px 0;
+	color: white;
+	font-size: 14px;
+	font-family: Georgia, serif;
+	text-decoration: none;
+	vertical-align: middle;
+}
+
+#centrar{
+        text-align: center;
+}
+
+#centrar table {
+       margin: 0 auto;
+       text-align: left;
+}
+
+#centrarBot{
+	padding-left: 48%;
+	padding-top: 2%;
+}
+  
+#aviso {
+	font: 10pt Arial, Helvetica, sans-serif;
+	color: #5e050c;
+}
+
+.form {
+	border: 1px solid #CED5D7;
+	border-radius: 6px;
+	padding: 45px 45px 20px;
+	margin-top: 50px;
+	background-color: white;
+	box-shadow: 0px 5px 10px #B5C1C5, 0 0 0 10px #EEF5F7 inset;
+}
+
+.error {
+	background-color: #BC1010;
+	padding: 6px 12px;
+	border-radius: 4px;
+	color: white;
+	font-weight: bold;
+	margin-left: 16px;
+	margin-top: 6px;
+	position: absolute;
+}
+
+.error:before { /* Este es un truco para crear una flechita */
+	content: '';
+	border-top: 8px solid transparent;
+	border-bottom: 8px solid transparent;
+	border-right: 8px solid #BC1010;
+	border-left: 8px solid transparent;
+	left: -16px;
+	position: absolute;
+	top: 5px;
 }
