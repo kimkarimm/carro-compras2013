@@ -1,6 +1,7 @@
 package modelo;
 
 public class Comprado {
+	int id;
 	String nombre;
 	double precio;
 	int cantidad;
@@ -9,8 +10,9 @@ public class Comprado {
 		super();
 	}
 
-	public Comprado(String nombre, double precio, int cantidad) {
+	public Comprado(int id, String nombre, double precio, int cantidad) {
 		super();
+		this.id = id;
 		this.nombre = nombre;
 		this.precio = precio;
 		this.cantidad = cantidad;
@@ -38,6 +40,14 @@ public class Comprado {
 
 	public void setCantidad(int cantidad) {
 		this.cantidad = cantidad;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 }
