@@ -67,15 +67,17 @@ public class CategoriaController extends HttpServlet {
 				CategoriaDao daocategoria = new CategoriaDao();
 				String nombre = request.getParameter("nombre");
 				Categoria categoria = new Categoria(nombre);
-				if (!daocategoria.guardar(categoria)) {
-					sesion.setAttribute("cargada", true);
+				boolean cargado = daocategoria.guardar(categoria);
+				if (cargado) {
+					sesion.setAttribute("cargada", false);
 				} else {
-					List<Categoria> listaCategoria = daocategoria.listar();
-					sesion.setAttribute("encontrada", true);
-					sesion.setAttribute("listaCategorias", listaCategoria);
-					getServletContext().getRequestDispatcher(
-							"/altaCategoria.jsp").forward(request, response);
+					sesion.setAttribute("cargada", true);
 				}
+				List<Categoria> listaCategoria = daocategoria.listar();
+				sesion.setAttribute("listaCategorias", listaCategoria);
+				getServletContext().getRequestDispatcher("/altaCategoria.jsp")
+						.forward(request, response);
+
 			} else if (accion.equals("eliminar")) {
 				HttpSession sesion = request.getSession();
 				CategoriaDao daocategoria = new CategoriaDao();
