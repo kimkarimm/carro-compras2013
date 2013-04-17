@@ -43,35 +43,38 @@ public class ProductoController extends HttpServlet {
 				out.println("El mensaje no reconoce esta accion");
 				out.close();
 			} else if (accion.equals("listar")) {
-				HttpSession sesion= request.getSession();
+				HttpSession sesion = request.getSession();
 				ProductoDao daoproducto = new ProductoDao();
 				List<Producto> listaproductos = daoproducto.listar(null);
 				sesion.setAttribute("listaProductos", listaproductos);
-				getServletContext().getRequestDispatcher("/listarProductos.jsp")
-						.forward(request, response);
+				getServletContext()
+						.getRequestDispatcher("/listarProductos.jsp").forward(
+								request, response);
 			} else if (accion.equals("listarPorCategoria")) {
 				ProductoDao daoproducto = new ProductoDao();
 				HttpSession sesion = request.getSession();
 				int id = Integer.parseInt(request.getParameter("categoria"));
-				List<Producto> listaproducto = daoproducto.listar("categoria_id=" + id);
+				List<Producto> listaproducto = daoproducto
+						.listar("categoria_id=" + id);
 				sesion.setAttribute("listaPorCategoria", listaproducto);
 				getServletContext().getRequestDispatcher(
 						"/listaPorCategoria.jsp").forward(request, response);
 			} else if (accion.equals("buscar")) {
-				HttpSession sesion= request.getSession();
+				HttpSession sesion = request.getSession();
 				ProductoDao daoproducto = new ProductoDao();
 				Producto prod = daoproducto.buscar(Integer.parseInt(request
 						.getParameter("producto")));
 				if (prod != null) {
 					sesion.setAttribute("producto", prod);
 					getServletContext().getRequestDispatcher(
-							"/modificarProducto.jsp").forward(request, response);
+							"/modificarProducto.jsp")
+							.forward(request, response);
 				} else {
 					out.println("El producto que usted esta buscando no se encuentra disponible en nuestra base de datos. Por favor, vuelva a intentarlo");
 					out.close();
 				}
 			} else if (accion.equals("guardar")) {
-				HttpSession sesion= request.getSession();
+				HttpSession sesion = request.getSession();
 				ProductoDao daoproducto = new ProductoDao();
 				CategoriaDao daocategoria = new CategoriaDao();
 				String nombre = request.getParameter("nombre");
@@ -82,23 +85,28 @@ public class ProductoController extends HttpServlet {
 				Categoria categoria = daocategoria.buscar(cat);
 				Producto prod = new Producto(nombre, descripcion, precio,
 						categoria);
-				daoproducto.guardar(prod);
-				List<Producto> listaproductos = daoproducto.listar(null);
-				sesion.setAttribute("listaProductos", listaproductos);
-				getServletContext().getRequestDispatcher("/altaProducto.jsp")
-						.forward(request, response);
+				if (!daoproducto.guardar(prod)) {
+					sesion.setAttribute("cargado", false);
+				} else {
+					List<Producto> listaproductos = daoproducto.listar(null);
+					sesion.setAttribute("cargado", true);
+					sesion.setAttribute("listaProductos", listaproductos);
+					getServletContext().getRequestDispatcher(
+							"/altaProducto.jsp").forward(request, response);
+				}
 			} else if (accion.equals("eliminar")) {
-				HttpSession sesion= request.getSession();
+				HttpSession sesion = request.getSession();
 				ProductoDao daoproducto = new ProductoDao();
 				int id = Integer.parseInt(request.getParameter("producto"));
 				Producto prod = daoproducto.buscar(id);
 				daoproducto.eliminar(prod);
 				List<Producto> listaproductos = daoproducto.listar(null);
 				sesion.setAttribute("listaProductos", listaproductos);
-				getServletContext().getRequestDispatcher(
-						"/listarProductos.jsp").forward(request, response);
+				getServletContext()
+						.getRequestDispatcher("/listarProductos.jsp").forward(
+								request, response);
 			} else if (accion.equals("modificar")) {
-				HttpSession sesion= request.getSession();
+				HttpSession sesion = request.getSession();
 				ProductoDao daoproducto = new ProductoDao();
 				CategoriaDao daocategoria = new CategoriaDao();
 				int id = Integer.parseInt(request.getParameter("producto"));
@@ -113,8 +121,9 @@ public class ProductoController extends HttpServlet {
 				daoproducto.modificar(prod);
 				List<Producto> listaproductos = daoproducto.listar(null);
 				sesion.setAttribute("listaProductos", listaproductos);
-				getServletContext().getRequestDispatcher(
-						"/listarProductos.jsp").forward(request, response);
+				getServletContext()
+						.getRequestDispatcher("/listarProductos.jsp").forward(
+								request, response);
 			}
 
 		} catch (Exception error) {

@@ -16,25 +16,33 @@ public class ProductoDao extends ManejadorDB {
 		super();
 	}
 
-	public void guardar(Producto p) throws SQLException {
+	public boolean guardar(Producto p) throws SQLException {
 		this.conectarDB();
-		String sql = "INSERT INTO producto (nombre, descripcion, precio, categoria_id) "
-				+ "VALUES ('"
+		String sql = "SELECT categoria_id, nombre, descripcion FROM producto WHERE (categoria_id="
+				+ p.getCategoria()
+				+ ") and (nombre="
 				+ p.getNombre()
-				+ "','"
-				+ p.getDescripcion()
-				+ "',"
-				+ p.getPrecio()
-				+ ","
-				+ p.getCategoria().getId()
-				+ ");";
+				+ ") and (descripcion=" + p.getDescripcion() + ");";
 		PreparedStatement sentencia = con.prepareStatement(sql);
-		int i = sentencia.executeUpdate();
-		this.cerrarConexion();
-		if (i == 1) {
-			System.out.println("El producto se inserto correctamente.");
+		ResultSet datos = sentencia.executeQuery();
+		if (!datos.equals(null)) {
+			this.cerrarConexion();
+			return false;
 		} else {
-			System.out.println("Error en la insersion del producto.");
+			sql = "INSERT INTO producto (nombre, descripcion, precio, categoria_id) "
+					+ "VALUES ('"
+					+ p.getNombre()
+					+ "','"
+					+ p.getDescripcion()
+					+ "',"
+					+ p.getPrecio()
+					+ ","
+					+ p.getCategoria().getId()
+					+ ");";
+			sentencia = con.prepareStatement(sql);
+			int i = sentencia.executeUpdate();
+			this.cerrarConexion();
+			return true;
 		}
 	}
 
