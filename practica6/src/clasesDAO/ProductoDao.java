@@ -20,9 +20,9 @@ public class ProductoDao extends ManejadorDB {
 		this.conectarDB();
 		String sql = "SELECT categoria_id, nombre, descripcion FROM producto WHERE (categoria_id="
 				+ p.getCategoria()
-				+ ") and (nombre="
+				+ ")and(nombre="
 				+ p.getNombre()
-				+ ") and (descripcion=" + p.getDescripcion() + ");";
+				+ ")and(descripcion=" + p.getDescripcion() + ")";
 		PreparedStatement sentencia = con.prepareStatement(sql);
 		ResultSet datos = sentencia.executeQuery();
 		if (!datos.equals(null)) {
