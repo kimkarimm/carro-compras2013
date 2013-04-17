@@ -15,7 +15,5 @@
 			<li><a href='UsuarioController?accion=listar'><span>Listar</span></a></li>
 			<li class='last'><a href='altaUsuario.jsp'><span>Agregar</span></a></li>
 		</ul></li>
-	<form action="http://localhost:8080/practica6/CerrarSesion">
-		<input id=posLogin type="submit" name="cerrarSesion" value="Cerrar Sesion">
-	</form>
+	<%@ include file="cerrarSesion.jsp" %>
 </ul>
