@@ -54,7 +54,7 @@ public class PedidoDao extends ManejadorDB {
 	public List<Pedido> listar(String condicion) throws SQLException {
 		this.conectarDB();
 		String sql = "SELECT * FROM pedido";
-		if(condicion != null)
+		if (condicion != null)
 			sql += "WHERE" + condicion;
 		PreparedStatement sentencia = con.prepareStatement(sql);
 		ResultSet datos = sentencia.executeQuery();
@@ -70,14 +70,14 @@ public class PedidoDao extends ManejadorDB {
 			p.setFechaEntrega(datos.getString("fecha_entrega"));
 			p.setUsuario(u);
 			ArrayList<Comprado> prods = new ArrayList<Comprado>();
-			sql = "SELECT producto_id FROM pedido_has_producto WHERE pedido_id="
+			sql = "SELECT producto_id, cantidad FROM pedido_has_producto WHERE pedido_id="
 					+ p.getId();
 			sentencia = con.prepareStatement(sql);
 			ResultSet idProductos = sentencia.executeQuery();
 			while (idProductos.next()) {
 				Producto product = new Producto();
 				ProductoDao pDao = new ProductoDao();
-				product = pDao.buscar(idProductos.getInt("id_producto"));
+				product = pDao.buscar(idProductos.getInt("producto_id"));
 				Comprado comprado = new Comprado(product.getId(),
 						product.getNombre(), product.getPrecio(),
 						idProductos.getInt("cantidad"));
