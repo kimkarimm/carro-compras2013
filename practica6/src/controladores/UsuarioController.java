@@ -58,7 +58,6 @@ public class UsuarioController extends HttpServlet {
 				getServletContext().getRequestDispatcher("/listarPedidos.jsp")
 						.forward(request, response);
 			} else if (accion.equals("buscar")) {
-				HttpSession sesion = request.getSession();
 				UsuarioDao daousuario = new UsuarioDao();
 				Usuario usuario = daousuario.buscar(Integer.parseInt(request
 						.getParameter("usuario")));
@@ -76,14 +75,9 @@ public class UsuarioController extends HttpServlet {
 				ArrayList<Pedido> pedidos = new ArrayList<>();
 				Usuario usuario = new Usuario(nombre, apellido, mail,
 						nomusuario, password, pedidos);
-				if (!daousuario.guardar(usuario)) {
-					sesion.setAttribute("cargado", false);
-				} else {
-					sesion.setAttribute("cargado", true);
-					getServletContext()
-							.getRequestDispatcher("/altaUsuario.jsp").forward(
-									request, response);
-				}
+				daousuario.guardar(usuario);
+				getServletContext().getRequestDispatcher("/altaUsuario.jsp")
+						.forward(request, response);
 			} else if (accion.equals("eliminar")) {
 				HttpSession sesion = request.getSession();
 				UsuarioDao daousuario = new UsuarioDao();
