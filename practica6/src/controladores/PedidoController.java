@@ -59,7 +59,7 @@ public class PedidoController extends HttpServlet {
 				List<Pedido> listaPedidosUsuario = daopedido
 						.listar("usuario_id="
 								+ request.getParameter("condicion"));
-				sesion.setAttribute("listaPedidosUsuario", listaPedidosUsuario);
+				sesion.setAttribute("listaPedidos", listaPedidosUsuario);
 				getServletContext().getRequestDispatcher("/listaPedidos.jsp")
 						.forward(request, response);
 			} else if (accion.equals("buscar")) {
