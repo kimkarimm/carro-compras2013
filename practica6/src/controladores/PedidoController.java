@@ -49,8 +49,17 @@ public class PedidoController extends HttpServlet {
 			} else if (accion.equals("listar")) {
 				HttpSession sesion = request.getSession();
 				PedidoDao daopedido = new PedidoDao();
-				List<Pedido> listaPedidos = daopedido.listar();
+				List<Pedido> listaPedidos = daopedido.listar(null);
 				sesion.setAttribute("listaPedidos", listaPedidos);
+				getServletContext().getRequestDispatcher("/listaPedidos.jsp")
+						.forward(request, response);
+			} else if (accion.equals("listarPorUsuario")) {
+				HttpSession sesion = request.getSession();
+				PedidoDao daopedido = new PedidoDao();
+				List<Pedido> listaPedidosUsuario = daopedido
+						.listar("usuario_id="
+								+ request.getParameter("condicion"));
+				sesion.setAttribute("listaPedidosUsuario", listaPedidosUsuario);
 				getServletContext().getRequestDispatcher("/listaPedidos.jsp")
 						.forward(request, response);
 			} else if (accion.equals("buscar")) {
