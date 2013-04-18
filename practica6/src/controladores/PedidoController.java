@@ -56,9 +56,9 @@ public class PedidoController extends HttpServlet {
 			} else if (accion.equals("listarPorUsuario")) {
 				HttpSession sesion = request.getSession();
 				PedidoDao daopedido = new PedidoDao();
+				int id = Integer.parseInt(request.getParameter("condicion"));
 				List<Pedido> listaPedidosUsuario = daopedido
-						.listar("usuario_id="
-								+ request.getParameter("condicion"));
+						.listar("usuario_id=" + id);
 				sesion.setAttribute("listaPedidos", listaPedidosUsuario);
 				getServletContext().getRequestDispatcher("/listaPedidos.jsp")
 						.forward(request, response);
