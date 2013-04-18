@@ -8,6 +8,11 @@
 	</center>
 	<div>
 		<table>
+			<tr>
+				<th>Nombre</th>
+				<th>Descripcion</th>
+				<th>Precio</th>
+			</tr>
 			<c:forEach var="prod" items="${sessionScope.listaProductos}">
 				<tr>
 					<td width="5%"><c:out value="${ prod.nombre }" /></td>

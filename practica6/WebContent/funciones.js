@@ -1,5 +1,6 @@
 $(document).ready(function () {
     var emailreg = /^[a-zA-Z0-9_\.\-]+@[a-zA-Z0-9\-]+\.[a-zA-Z0-9\-\.]+$/;
+    var min = 6;
     $(".boton").click(function (){
         $(".error").remove();
         if( $(".nombre").val() == "" ){
@@ -14,15 +15,20 @@ $(document).ready(function () {
             
         }else if($(".nombreUsr").val()==""){
         	$(".nombreUsr").focus().after("<span class='error'>Ingrese un nombre de usuario correcto</span>");
+       
         }else if( $(".password").val() == ""){
             $(".password").focus().after("<span class='error'>Ingrese una contraseña</span>");
             return false;
-        }else if( $(".confirm_password").val() == "" ){
-            $(".confirm_password").focus().after("<span class='error'>Contrasenias no coincidentes</span>");
+	    }else if( $(".password").val().length() == min){
+	        $(".password").focus().after("<span class='error'>Ingrese una contraseña de mas de 6 caracteres</span>");
+	        return false;
+	    }
+        else if( $(".confirm_password").val() != $(".password").val() ){
+            $(".confirm_password").focus().after("<span class='error'>Las contraseñas no coinciden</span>");
             return false;
         }
     });
-});
+
 
 $(".nombre, .apellido").keyup(function(){
     if( $(this).val() != "" ){
@@ -35,4 +41,5 @@ $(".email").keyup(function(){
         $(".error").fadeOut();
         return false;
     }
+});
 });

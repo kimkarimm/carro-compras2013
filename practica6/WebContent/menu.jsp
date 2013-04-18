@@ -28,14 +28,30 @@
 <script src="javascripts/jquery.js" type="text/javascript"></script>
 <script src="javascripts/jquery.tipsy.js" type="text/javascript"></script>
 
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/easySlider1.7.js"></script>
+ 
+<script type="text/javascript">
+    $(document).ready(function(){  
+        $("#slider").easySlider({
+            auto: true,
+            continuous: true,
+            nextId: "slider1next",
+            prevId: "slider1prev"
+        });
+    });
+</script>
+
+
+
 </head>
 <body width="100%">
 	<div id="wrapper">
 		<div id="header" class="clearfix">
 			<div class="h_left"></div>
-			<%-- 			<center> --%>
-			<!-- 				<a><img src="encabezado1.jpg.png" alt="" class="logo"></a> -->
-			<%-- 			</center> --%>
+						<center>
+							<a><img src="images/encabezado.jpg" alt="" class="logo"></a>
+						</center>
 
 
 			<!-- 			<div id ="topnav"class="topnav"> Iniciar Sesion  -->
