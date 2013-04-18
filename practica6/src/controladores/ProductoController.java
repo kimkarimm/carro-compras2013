@@ -88,12 +88,12 @@ public class ProductoController extends HttpServlet {
 				if (!daoproducto.guardar(prod)) {
 					sesion.setAttribute("cargado", false);
 				} else {
-					List<Producto> listaproductos = daoproducto.listar(null);
 					sesion.setAttribute("cargado", true);
-					sesion.setAttribute("listaProductos", listaproductos);
-					getServletContext().getRequestDispatcher(
-							"/altaProducto.jsp").forward(request, response);
 				}
+				List<Producto> listaproductos = daoproducto.listar(null);
+				sesion.setAttribute("listaProductos", listaproductos);
+				getServletContext().getRequestDispatcher("/altaProducto.jsp")
+						.forward(request, response);
 			} else if (accion.equals("eliminar")) {
 				HttpSession sesion = request.getSession();
 				ProductoDao daoproducto = new ProductoDao();

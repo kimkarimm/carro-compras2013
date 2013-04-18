@@ -18,38 +18,26 @@ public class UsuarioDao extends ManejadorDB {
 		super();
 	}
 
-	public boolean guardar(Usuario u) throws SQLException {
+	public void guardar(Usuario u) throws SQLException {
 		this.conectarDB();
-		String sql = "SELECT nomusuario FROM usuario WHERE (nomusuario="
-				+ u.getNomusuario() + ")";
+		String sql = "INSERT INTO usuario (nombre, apellido, mail, nomusuario, password, permisos) "
+				+ "VALUES ('"
+				+ u.getNombre()
+				+ "', '"
+				+ u.getApellido()
+				+ "', '"
+				+ u.getMail()
+				+ "', '"
+				+ u.getNomusuario()
+				+ "', '"
+				+ u.getPassword() + "', '" + u.getPermisos() + "');";
 		PreparedStatement sentencia = con.prepareStatement(sql);
-		ResultSet datos = sentencia.executeQuery();
-		if (!datos.equals(null)) {
-			return false;
-		} else {
-			sql = "INSERT INTO usuario (nombre, apellido, mail, nomusuario, password, permisos) "
-					+ "VALUES ('"
-					+ u.getNombre()
-					+ "', '"
-					+ u.getApellido()
-					+ "', '"
-					+ u.getMail()
-					+ "', '"
-					+ u.getNomusuario()
-					+ "', '"
-					+ u.getPassword()
-					+ "', '"
-					+ u.getPermisos()
-					+ "');";
-			sentencia = con.prepareStatement(sql);
-			sentencia.executeUpdate();
-			this.cerrarConexion();
-			int n = 0;
-			PedidoDao pedDao = new PedidoDao();
-			while (n < u.getPedidos().size()) {
-				pedDao.guardar(u.getPedidos().get(n));
-			}
-			return true;
+		sentencia.executeUpdate();
+		this.cerrarConexion();
+		int n = 0;
+		PedidoDao pedDao = new PedidoDao();
+		while (n < u.getPedidos().size()) {
+			pedDao.guardar(u.getPedidos().get(n));
 		}
 	}
 

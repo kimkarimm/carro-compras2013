@@ -18,14 +18,14 @@ public class ProductoDao extends ManejadorDB {
 
 	public boolean guardar(Producto p) throws SQLException {
 		this.conectarDB();
-		String sql = "SELECT categoria_id, nombre, descripcion FROM producto WHERE (categoria_id="
-				+ p.getCategoria()
-				+ ")and(nombre="
+		String sql = "SELECT categoria_id, nombre, descripcion FROM producto WHERE (categoria_id='"
+				+ p.getCategoria().getId()
+				+ "')and(nombre='"
 				+ p.getNombre()
-				+ ")and(descripcion=" + p.getDescripcion() + ")";
+				+ "')and(descripcion='" + p.getDescripcion() + "')";
 		PreparedStatement sentencia = con.prepareStatement(sql);
 		ResultSet datos = sentencia.executeQuery();
-		if (!datos.equals(null)) {
+		if (datos.next()) {
 			this.cerrarConexion();
 			return false;
 		} else {
