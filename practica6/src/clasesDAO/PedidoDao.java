@@ -51,9 +51,11 @@ public class PedidoDao extends ManejadorDB {
 		this.cerrarConexion();
 	}
 
-	public List<Pedido> listar() throws SQLException {
+	public List<Pedido> listar(String condicion) throws SQLException {
 		this.conectarDB();
 		String sql = "SELECT * FROM pedido";
+		if(condicion != null)
+			sql += "WHERE" + condicion;
 		PreparedStatement sentencia = con.prepareStatement(sql);
 		ResultSet datos = sentencia.executeQuery();
 		ArrayList<Pedido> ped = new ArrayList<Pedido>();
