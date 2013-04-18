@@ -15,5 +15,10 @@
 			<li><a href='UsuarioController?accion=listar'><span>Listar</span></a></li>
 			<li class='last'><a href='altaUsuario.jsp'><span>Agregar</span></a></li>
 		</ul></li>
+	
+	<li class='has-sub last'><a href='#'><span>Pedidos</span></a>
+		<ul>
+			<li><a href='PedidoController?accion=listar'><span>Listar</span></a></li>
+		</ul></li>
 	<%@ include file="cerrarSesion.jsp" %>
 </ul>

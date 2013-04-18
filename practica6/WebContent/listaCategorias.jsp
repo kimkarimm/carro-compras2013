@@ -8,6 +8,10 @@
 	</center>
 	<div>
 		<table>
+			<tr>
+				<th>Nombre</th>
+				<th>Opciones</th>
+			</tr>
 			<c:forEach var="cat" items="${ sessionScope.listaCategorias}">
 				<tr>
 					<td width="3%"><c:out value="${cat.nombre}"></c:out></td>
