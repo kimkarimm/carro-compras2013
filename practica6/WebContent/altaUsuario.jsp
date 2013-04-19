@@ -1,6 +1,16 @@
 
 <%@ include file="menu.jsp"%>
 
+<script type="text/javascript" src="/js/jquery.complexify.js"></script>
+
+
+<script type="text/javascript" src="js/jquery.complexify.js"></script>
+<script type="text/javascript">
+  $("#password").complexify(options, callback(valid, complexity){
+    alert("Password complexity: " + complexity);
+  });
+</script>
+
 <form
 	action="http://localhost:8080/practica6/UsuarioController?accion=guardar"
 			method="post">

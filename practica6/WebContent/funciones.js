@@ -23,12 +23,7 @@ $(document).ready(function () {
 	        $(".password").focus().after("<span class='error'>Ingrese una contraseña de mas de 6 caracteres</span>");
 	        return false;
 	    }
-        else if( $(".confirm_password").val() != $(".password").val() ){
-            $(".confirm_password").focus().after("<span class='error'>Las contraseñas no coinciden</span>");
-            return false;
-        }
     });
-
 
 $(".nombre, .apellido").keyup(function(){
     if( $(this).val() != "" ){
