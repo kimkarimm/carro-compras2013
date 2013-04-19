@@ -12,8 +12,9 @@
 				<tr>
 					<td><c:out value="${ usr.nombre }" /></td>
 					<td><c:out value="${ usr.apellido}" /></td>
+					<td><c:out value="${ usr.nomusuario}" /></td>
 					<td><c:out value="${ usr.mail}" /></td>
-					<td width="19%">Admini..<c:out value="${ usr.permisos}" /></td>
+					<td width="19%">Admin<c:out value="${ usr.permisos}" /></td>
 					<c:if test="${sessionScope.permisos == 1}">
 						<td><a
 							href="UsuarioController?accion=buscar&usuario=<c:out value='${usr.id}' />">Modificar

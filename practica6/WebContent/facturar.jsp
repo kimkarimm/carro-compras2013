@@ -34,24 +34,34 @@
 			</tr>
 			<tr>
 				<td width="200px">Fecha de Entrega Programada</td>
-				<td><c:out value="${sessionScope.pedido.fechaEntrega }"></c:out></td>
+				<td></td>
 			</tr>
 		</table>
 		<br>
-		<table border="1">
+		
+		
+		
+		<div id="centrar">
+		<table cellpadding="5" cellspacing="5" border="1">
 			<tr>
+				<th>Nombre</td>
+				<th>Cantidad</td>
+				<th>Precio</td>
+			</tr>
+			<c:forEach var="pedido" items="${sessionScope.pedido}">
+						<tr align="left">
+							<td><c:out value="${pedido.productos.nombre}" /></td>
+							<td><c:out value="${pedido.productos.cantidad}" /></td>
+							<td><c:out value="${pedido.productos.precio}" /></td>
+			</c:forEach>
+			</tr>
+			
 				
-				<td width="15%">Nombre</td>
-				<td width="3%">Cantidad</td>
-				<td width="15%">Precio</td>
-
-				<%!%>
-			</tr>	
 			<br>	
 			<tr>
 				<td></td>
 				<td>Total</td>
-				<td></td>
+				<td>	</td>
 			</tr>
 		</table>
 	</div>
