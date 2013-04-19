@@ -16,7 +16,7 @@
 				</tr>
 				<c:forEach var="prod" items="${ sessionScope.listaPorCategoria }">
 					<form
-						action="http://localhost:8080/practica6/LlenarCarrito?idproducto=${prod.id}">
+						action="http://localhost:8080/practica6/LlenarCarrito?idproducto=${prod.id}" method="post">
 						<tr align="left">
 							<td><c:out value="${prod.nombre}" /></td>
 							<td><c:out value="${prod.precio}" /></td>
