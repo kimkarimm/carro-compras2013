@@ -7,7 +7,7 @@
 		</h1>
 	</center>
 	<div>
-		<form action="http://localhost:8080/practica6/LlenarCarrito">
+		<form action="http://localhost:8080/practica6/LlenarCarrito?idproducto=${prod.id}">
 
 			<div id="centrar">
 				<table cellpadding="5" cellspacing="5">
@@ -20,7 +20,7 @@
 						<tr align="left">
 							<td><c:out value="${prod.nombre}" /></td>
 							<td><c:out value="${prod.precio}" /></td>
-							<td> <input type="image" name="enviar" src="images/agregar.png"/> </td>
+							<td align="center"> <input type="image" name="enviar" src="images/agregar.png"/> </td>
 						</tr>
 					</c:forEach>
 				</table>
