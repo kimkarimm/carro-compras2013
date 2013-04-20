@@ -35,23 +35,35 @@ public class LlenarCarrito extends HttpServlet {
 			HttpServletResponse response) throws ServletException, IOException {
 		try {
 			HttpSession sesion = request.getSession();
-			List<Producto> productos = (List) sesion
-					.getAttribute("listaPorCategoria");
 			ArrayList<Comprado> comprados = (ArrayList<Comprado>) sesion
 					.getAttribute("comprados");
-			double total = (double) sesion.getAttribute("total");
-			for (Producto producto : productos) {
-				int cantidad = Integer.parseInt((request.getParameter(Integer
-						.toString(producto.getId()))));
-				if (cantidad != 0) {
-					total = total + (producto.getPrecio() * cantidad);
-					Comprado comprado = new Comprado(producto.getId(),
-							producto.getNombre(), producto.getPrecio(),
-							cantidad);
-					comprados.add(comprado);
+			ProductoDao daoproducto = new ProductoDao();
+			int id = Integer.parseInt(request.getParameter("idproducto"));
+			Producto producto = daoproducto.buscar(id);
+			if (!comprados.isEmpty()) {
+				Comprado comprado = comprados.get(0);
+				int i = 1;
+				while ((comprado.getId() != producto.getId())
+						&& (!comprados.isEmpty())) {
+					comprado = comprados.get(i);
+					i++;
+				}
+				if (comprado.getId() == producto.getId()) {
+					comprado.setSubtotal(comprado.getSubtotal()
+							+ comprado.getPrecio());
+					comprado.setCantidad(comprado.getCantidad() + 1);
+					comprados.set(i, comprado);
+					double total = (double) sesion.getAttribute("total");
+					total = total + producto.getPrecio();
+					sesion.setAttribute("total", total);
 				}
 			}
-			sesion.setAttribute("total", total);
+			if (comprados.isEmpty()) {
+				Comprado comp = new Comprado(producto.getId(),
+						producto.getNombre(), producto.getPrecio(), 1,
+						producto.getPrecio());
+				comprados.add(comp);
+			}
 			sesion.setAttribute("comprados", comprados);
 			getServletContext().getRequestDispatcher("/listaPorCategoria.jsp")
 					.forward(request, response);
