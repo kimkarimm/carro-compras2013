@@ -141,7 +141,9 @@ public class UsuarioDao extends ManejadorDB {
 					producto = pDao.buscar(idProductos.getInt("producto_id"));
 					Comprado comprado = new Comprado(producto.getId(),
 							producto.getNombre(), producto.getPrecio(),
-							idProductos.getInt("cantidad"));
+							idProductos.getInt("cantidad"),
+							producto.getPrecio()
+									* idProductos.getInt("cantidad"));
 					productos.add(comprado);
 				}
 				ped.setProductos(productos);
