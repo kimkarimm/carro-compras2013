@@ -5,17 +5,20 @@ public class Comprado {
 	String nombre;
 	double precio;
 	int cantidad;
+	double subtotal;
 
 	public Comprado() {
 		super();
 	}
 
-	public Comprado(int id, String nombre, double precio, int cantidad) {
+	public Comprado(int id, String nombre, double precio, int cantidad,
+			double subtotal) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
 		this.precio = precio;
 		this.cantidad = cantidad;
+		this.subtotal = subtotal;
 	}
 
 	public String getNombre() {
@@ -48,6 +51,14 @@ public class Comprado {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	public double getSubtotal() {
+		return subtotal;
+	}
+
+	public void setSubtotal(double subtotal) {
+		this.subtotal = subtotal;
 	}
 
 }
