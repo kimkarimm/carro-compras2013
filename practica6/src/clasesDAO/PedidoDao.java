@@ -80,7 +80,8 @@ public class PedidoDao extends ManejadorDB {
 				product = pDao.buscar(idProductos.getInt("producto_id"));
 				Comprado comprado = new Comprado(product.getId(),
 						product.getNombre(), product.getPrecio(),
-						idProductos.getInt("cantidad"));
+						idProductos.getInt("cantidad"), product.getPrecio()
+								* idProductos.getInt("cantidad"));
 				prods.add(comprado);
 			}
 			p.setProductos(prods);
@@ -152,7 +153,8 @@ public class PedidoDao extends ManejadorDB {
 				product = pDao.buscar(idProductos.getInt("producto_id"));
 				Comprado comprado = new Comprado(product.getId(),
 						product.getNombre(), product.getPrecio(),
-						idProductos.getInt("cantidad"));
+						idProductos.getInt("cantidad"), product.getPrecio()
+								* idProductos.getInt("cantidad"));
 				prods.add(comprado);
 			}
 			ped.setProductos(prods);
