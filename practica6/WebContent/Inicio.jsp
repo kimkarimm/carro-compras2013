@@ -2,14 +2,16 @@
 				<div>	
 					<center>			
 						<div class="contacto">
-						<br><br><br>
-						<h1>Bienvenido</h1>
-						<p></p>
-						<p> </p>
-						<br><br><br>
-						<br><br>
-						<h3>Tienda digital</h3>
+							<div id="slider" >
+								<ul>				
+									<li><img style="height:300px" src="images/01.jpg" alt="Css Template Preview" /></a></li>
+									<li><img style="height:300px" src="images/02.jpg" alt="Css Template Preview" /></a></li>
+									<li><img  style="height:300px" src="images/03.jpg" alt="Css Template Preview" /></a></li>
+									<li><img style="height:300px" src="images/04.jpg" alt="Css Template Preview" /></a></li>
+									<li><img style="height:300px" src="images/05.jpg" alt="Css Template Preview" /></a></li>			
+								</ul>
+							</div>
 						</div>
 					</center>	
-				</div>
+				</div>		
 	<%@ include file="pie.jsp" %>
