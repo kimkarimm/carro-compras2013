@@ -50,7 +50,16 @@
 		<div id="header" class="clearfix">
 			<div class="h_left"></div>
 						<center>
-							<a><img src="images/encabezado.jpg" alt="" class="logo"></a>
+						<div id="slider" >
+							<ul>				
+								<li><a href="http://templatica.com/preview/30"><img style="height:200px" src="images/encabezado.jpg" alt="Css Template Preview" /></a></li>
+								<li><a href="http://templatica.com/preview/7"><img style="height:200px" src="images/encabezado.jpg" alt="Css Template Preview" /></a></li>
+								<li><a href="http://templatica.com/preview/25"><img  style="height:200px" src="images/encabezado.jpg" alt="Css Template Preview" /></a></li>
+								<li><a href="http://templatica.com/preview/26"><img style="height:200px" src="images/encabezado.jpg" alt="Css Template Preview" /></a></li>
+								<li><a href="http://templatica.com/preview/27"><img style="height:200px" src="images/encabezado.jpg" alt="Css Template Preview" /></a></li>			
+							</ul>
+						</div>
+		<!-- 					<a><img src="images/encabezado.jpg" alt="" class="logo"></a> -->
 						</center>
 
 
