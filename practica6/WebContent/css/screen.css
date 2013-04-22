@@ -1,27 +1,30 @@
-body {
-		background:#fff url(../images/bg_body.gif) repeat-x;
-		font:80% Trebuchet MS, Arial, Helvetica, Sans-Serif;
-		color:#333;
-		line-height:180%;
-		margin:0;
-		padding:0;
-		text-align:center;
+/* body { */
+/* 		background:#fff url(../images/bg_body.gif) repeat-x; */
+/* 		font:80% Trebuchet MS, Arial, Helvetica, Sans-Serif; */
+/* 		color:#333; */
+/* 		line-height:180%; */
+/* 		margin:0; */
+/* 		padding:0; */
+/* 		text-align:center; */
+/* 	} */
+/* 	h1{ */
+/* 		font-size:180%; */
+/* 		font-weight:normal; */
+/* 		margin:0; */
+/* 		padding:0 20px; */
+/* 		} */
+/* 	h2{ */
+/* 		font-size:160%; */
+/* 		font-weight:normal; */
+/* 		}	 */
+/* 	h3{ */
+/* 		font-size:140%; */
+/* 		font-weight:normal; */
+/* 		}	 */
+	img{
+	border:none;
 	}
-	h1{
-		font-size:180%;
-		font-weight:normal;
-		margin:0;
-		padding:0 20px;
-		}
-	h2{
-		font-size:160%;
-		font-weight:normal;
-		}	
-	h3{
-		font-size:140%;
-		font-weight:normal;
-		}	
-	img{border:none;}
+	
 	pre{
 		display:block;
 		font:12px "Courier New", Courier, monospace;
@@ -42,23 +45,23 @@ body {
             }
     /* // image replacement */
 			
-	#container{	
-		margin:0 auto;
-		position:relative;
-		text-align:left;
-		width:696px;
-		background:#fff;		
-		margin-bottom:2em;
-		}	
-	#header{
-		height:80px;
-		line-height:80px;
-		background:#5DC9E1;
-		color:#fff;
-		}				
-	#content{
-		position:relative;
-		}			
+/* 	#container{	 */
+/* 		margin:0 auto; */
+/* 		position:relative; */
+/* 		text-align:left; */
+/* 		width:696px; */
+/* 		background:#fff;		 */
+/* 		margin-bottom:2em; */
+/* 		}	 */
+/* 	#header{ */
+/* 		height:80px; */
+/* 		line-height:80px; */
+/* 		background:#5DC9E1; */
+/* 		color:#fff; */
+/* 		}				 */
+/* 	#content{ */
+/* 		position:relative; */
+/* 		}			 */
 
 /* Easy Slider */
 
@@ -68,7 +71,9 @@ body {
 		padding:0;
 		list-style:none;
 		}
-	#slider2{margin-top:1em;}
+	#slider2{
+	margin-top:1em;
+	}
 	#slider li, #slider2 li{ 
 		/* 
 			define width and height of list item (slide)
@@ -78,7 +83,7 @@ body {
 		height:241px;
 		overflow:hidden; 
 		}	
-	#prevBtn, #nextBtn,
+	#prevBtn, #nextBtn,p 
 	#slider1next, #slider1prev{ 
 		display:block;
 		width:30px;
@@ -89,7 +94,7 @@ body {
 		z-index:1000;
 		}	
 	#nextBtn, #slider1next{ 
-		left:696px;
+		left:96px;
 		}														
 	#prevBtn a, #nextBtn a,
 	#slider1next a, #slider1prev a{  
