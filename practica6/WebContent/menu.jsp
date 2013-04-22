@@ -17,6 +17,7 @@
 <link href="estilo.css" rel="stylesheet" type="text/css">
 <link href="estiloForm.css" rel="stylesheet" type="text/css">
 <link href="style.css" rel="stylesheet" type="text/css">
+<link href="css/screen.css" rel="stylesheet" type="text/css">
 <script
 	src='http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js'></script>
 <script src='funciones.js'></script>
@@ -30,6 +31,7 @@
 
 <script type="text/javascript" src="js/jquery.js"></script>
 <script type="text/javascript" src="js/easySlider1.7.js"></script>
+
  
 <script type="text/javascript">
     $(document).ready(function(){  
@@ -50,46 +52,8 @@
 		<div id="header" class="clearfix">
 			<div class="h_left"></div>
 						<center>
-						<div id="slider" >
-							<ul>				
-								<li><a href="http://templatica.com/preview/30"><img style="height:200px" src="images/encabezado.jpg" alt="Css Template Preview" /></a></li>
-								<li><a href="http://templatica.com/preview/7"><img style="height:200px" src="images/encabezado.jpg" alt="Css Template Preview" /></a></li>
-								<li><a href="http://templatica.com/preview/25"><img  style="height:200px" src="images/encabezado.jpg" alt="Css Template Preview" /></a></li>
-								<li><a href="http://templatica.com/preview/26"><img style="height:200px" src="images/encabezado.jpg" alt="Css Template Preview" /></a></li>
-								<li><a href="http://templatica.com/preview/27"><img style="height:200px" src="images/encabezado.jpg" alt="Css Template Preview" /></a></li>			
-							</ul>
-						</div>
-		<!-- 					<a><img src="images/encabezado.jpg" alt="" class="logo"></a> -->
+							<a><img src="images/encabezado.jpg" alt=""></a>
 						</center>
-
-
-			<!-- 			<div id ="topnav"class="topnav"> Iniciar Sesion  -->
-			<!-- 				<a href ="login"class="signin"> -->
-			<!-- 				<span>Login</span></a> -->
-			<!-- 			</div> -->
-			<!-- 			<fieldset id="signin_menu">  -->
-			<!-- 				<form action="http://localhost:8080/practica6/Login" -->
-			<!-- 								method="post"> -->
-			<!-- 				<p>				 -->
-			<!-- 				<label for="username">Nombre de Usuario</label>  -->
-			<!-- 					<input id ="username" name="nomUsuario" value="" title="username" -->
-			<!-- 					tabindex="4" type="text"> -->
-			<!-- 					</p> -->
-			<!-- 					<p> -->
-			<!-- 						<label for="password">Contraseña</label>  -->
-			<!-- 						<input id ="password"name="password" value="" title="password" tabindex="5" -->
-			<!-- 							type="password"> -->
-			<!-- 					</p> -->
-			<!-- 					<p class="remember"> -->
-			<!-- 						<input id ="signin_submit"value="Sign in" -->
-			<!-- 							tabindex="6" type="submit">  -->
-			<!-- 						<input id -->
-			<!-- 							="remember"name="remember_me" value="1" tabindex="7" type="checkbox"> -->
-			<!-- 						<label for="remember">Recordarme</label> -->
-			<!-- 					</p> -->
-			<!-- 				</form> -->
-			<!-- 			</fieldset> -->
-
 
 			<div class="titulo">
 				<h1 align="center"></h1>
