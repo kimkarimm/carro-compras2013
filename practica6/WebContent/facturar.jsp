@@ -46,13 +46,13 @@
 			<tr>
 				<th>Nombre</td>
 				<th>Cantidad</td>
-				<th>Precio</td>
+				<th>Precio Unitario</td>
 			</tr>
-			<c:forEach var="pedido" items="${sessionScope.pedido}">
+			<c:forEach var="productos" items="${sessionScope.comprados}">
 						<tr align="left">
-							<td><c:out value="${pedido.productos.nombre}" /></td>
-							<td><c:out value="${pedido.productos.cantidad}" /></td>
-							<td><c:out value="${pedido.productos.precio}" /></td>
+							<td><c:out value="${productos.nombre}" /></td>
+							<td><c:out value="${productos.cantidad}" /></td>
+							<td><c:out value="${productos.precio}" /></td>
 			</c:forEach>
 			</tr>
 			
@@ -61,7 +61,7 @@
 			<tr>
 				<td></td>
 				<td>Total</td>
-				<td>	</td>
+				<td>"${sessioScope.comprados.total}"</td>
 			</tr>
 		</table>
 	</div>

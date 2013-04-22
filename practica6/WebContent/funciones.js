@@ -4,7 +4,7 @@ $(document).ready(function () {
     $(".boton").click(function (){
         $(".error").remove();
         if( $(".nombre").val() == "" ){
-            $(".nombre").focus().after("<span class='error'>Ingrese su nombre</span>");
+            $(".nombre").focus().after("<span class='error'>Ingrese un nombre</span>");
             return false;
         }else if ($(".apellido").val()==""){
         	$(".apellido").focus().after("<span class='error'>Ingrese su apellido</span>");
@@ -12,14 +12,13 @@ $(document).ready(function () {
         }else if( $(".email").val() == "" || !emailreg.test($(".email").val()) ){
             $(".email").focus().after("<span class='error'>Ingrese un email correcto</span>");
             return false;
-            
         }else if($(".nombreUsr").val()==""){
         	$(".nombreUsr").focus().after("<span class='error'>Ingrese un nombre de usuario correcto</span>");
-       
+        	return false;
         }else if( $(".password").val() == ""){
             $(".password").focus().after("<span class='error'>Ingrese una contraseña</span>");
             return false;
-	    }else if( $(".password").val().length() == min){
+	    }else if( $(".password").val().length() < min){
 	        $(".password").focus().after("<span class='error'>Ingrese una contraseña de mas de 6 caracteres</span>");
 	        return false;
 	    }
