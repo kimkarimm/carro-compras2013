@@ -40,28 +40,31 @@ public class LlenarCarrito extends HttpServlet {
 			ProductoDao daoproducto = new ProductoDao();
 			int id = Integer.parseInt(request.getParameter("idproducto"));
 			Producto producto = daoproducto.buscar(id);
+			int i = 1;
 			if (!comprados.isEmpty()) {
-				Comprado comprado = comprados.get(0);
-				int i = 1;
-				while ((comprado.getId() != producto.getId())
-						&& (!comprados.isEmpty())) {
-					comprado = comprados.get(i);
+				for (Comprado comprado : comprados) {
+					if (comprado.getId() == producto.getId()) {
+						int pos = i - 1;
+						comprados.get(pos).setSubtotal(
+								comprados.get(pos).getSubtotal()
+										+ producto.getPrecio());
+						comprados.get(pos).setCantidad(
+								comprados.get(pos).getCantidad() + 1);
+						double total = (double) sesion.getAttribute("total");
+						total = total + producto.getPrecio();
+						sesion.setAttribute("total", total);
+						break;
+					}
 					i++;
 				}
-				if (comprado.getId() == producto.getId()) {
-					comprado.setSubtotal(comprado.getSubtotal()
-							+ comprado.getPrecio());
-					comprado.setCantidad(comprado.getCantidad() + 1);
-					comprados.set(i, comprado);
-					double total = (double) sesion.getAttribute("total");
-					total = total + producto.getPrecio();
-					sesion.setAttribute("total", total);
-				}
 			}
-			if (comprados.isEmpty()) {
+			if ((comprados.isEmpty()) || (i > comprados.size())) {
 				Comprado comp = new Comprado(producto.getId(),
 						producto.getNombre(), producto.getPrecio(), 1,
 						producto.getPrecio());
+				double total = (double) sesion.getAttribute("total");
+				total = total + producto.getPrecio();
+				sesion.setAttribute("total", total);
 				comprados.add(comp);
 			}
 			sesion.setAttribute("comprados", comprados);
