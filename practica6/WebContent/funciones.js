@@ -15,13 +15,7 @@ $(document).ready(function () {
         }else if($(".nombreUsr").val()==""){
         	$(".nombreUsr").focus().after("<span class='error'>Ingrese un nombre de usuario correcto</span>");
         	return false;
-        }else if( $(".password").val() == ""){
-            $(".password").focus().after("<span class='error'>Ingrese una contraseña</span>");
-            return false;
-	    }else if( $(".password").val().length() < min){
-	        $(".password").focus().after("<span class='error'>Ingrese una contraseña de mas de 6 caracteres</span>");
-	        return false;
-	    }
+        }
     });
 
 $(".nombre, .apellido").keyup(function(){
