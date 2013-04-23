@@ -15,15 +15,20 @@
 <link rel="stylesheet" type="text/css" href="estilo.css" title="style" />
 <link href="estilo1.css" rel="stylesheet" type="text/css">
 <link href="estilo.css" rel="stylesheet" type="text/css">
-<link href="estiloForm.css" rel="stylesheet" type="text/css">
 <link href="style.css" rel="stylesheet" type="text/css">
+<link href="estiloForm.css" rel="stylesheet" type="text/css">
 <link href="css/screen.css" rel="stylesheet" type="text/css">
+
 <script
-	src='http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js'></script>
+ src='http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js'></script>
 <script src='funciones.js'></script>
 <script src='login.js'></script>
 <style type="text/css"></style>
 <title>Tienda digital</title>
+
+
+
+<link href="http://code.jquery.com/ui/1.9.0/themes/base/jquery-ui.css" rel="stylesheet"/>
 
 
 <script src="javascripts/jquery.js" type="text/javascript"></script>
@@ -109,11 +114,11 @@
 										<form action="http://localhost:8080/practica6/facturar.jsp">
 											<ul>
 												<c:forEach var="comp" items="${sessionScope.comprados}">
-													<li><c:out value="${comp.nombre}" /></li>
+													<li><p style="border-bottom: solid 1px #000033; width: 170px; padding-top: 5px; padding-top: 5px; "><c:out value="${comp.nombre}" /></p></li>
 												</c:forEach>
 											</ul>
 											<div id='postotal'>
-												<h4>
+												<h4 style="width: 170px; padding-top: 10px">
 													Total:
 													<c:out value="${sessionScope.total}"></c:out>
 												</h4>
