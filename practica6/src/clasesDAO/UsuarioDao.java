@@ -116,7 +116,7 @@ public class UsuarioDao extends ManejadorDB {
 			u.setMail(datos.getString("mail"));
 			u.setNomusuario(datos.getString("nomusuario"));
 			u.setPassword(datos.getString("password"));
-			u.setPermisos(datos.getInt("permisos"));
+			u.setPermisos(datos.getInt("permisos")); 
 
 			ArrayList<Pedido> pedidos = new ArrayList<Pedido>();
 
