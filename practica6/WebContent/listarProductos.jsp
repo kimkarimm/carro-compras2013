@@ -11,7 +11,6 @@
 			<div id="centrar">
 			<table cellpadding="5" cellspacing="5" rules="all" border-bottom="3" bordercolor="#23ACF0">
 				<c:forEach var="prod" items="${sessionScope.listaProductos}">
-
 						<tr>
 							<td><img src="images/nokia5030.gif" width="150px" height="100px"></td>
 							<td><div align="center" width="300px" min-height="100px"><b><c:out value="${prod.nombre}" /></b></div>

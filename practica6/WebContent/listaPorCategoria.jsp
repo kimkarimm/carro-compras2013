@@ -9,6 +9,11 @@
 
 		<div id="centrar">
 			<table cellpadding="5" cellspacing="5" rules="all" border-bottom="3" bordercolor="#23ACF0">
+				<tr>
+					<th>Imagen</th>
+					<th>Descripcion General</th>
+					<th>Agregar al Carrito</th>	
+				</tr>
 				<c:forEach var="prod" items="${ sessionScope.listaPorCategoria }">
 					<form
 						action="http://localhost:8080/practica6/LlenarCarrito?idproducto=${prod.id}" method="post">
@@ -25,5 +30,6 @@
 				</c:forEach>
 			</table>
 		</div>
+		
 	</div>
 	<%@ include file="pie.jsp"%>
