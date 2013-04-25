@@ -85,9 +85,9 @@ public class PedidoController extends HttpServlet {
 						.getParameter("usuario"));
 				Usuario usuario = daousuario.buscar(idusuario);
 				String fechaPedido = new String(
-						request.getParameter("fechaPedido"));
+						(String) request.getParameter("fechaPedido"));
 				String fechaEntrega = new String(
-						request.getParameter("fechaEntrega"));
+						(String) request.getParameter("fechaEntrega"));
 				ArrayList<Comprado> comprados = new ArrayList<>();
 				comprados = (ArrayList<Comprado>) sesion
 						.getAttribute("comprados");
