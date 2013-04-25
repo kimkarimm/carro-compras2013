@@ -118,7 +118,7 @@
 	text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.5);
 }
 
-#cssmenuh, #cssmenuh>ul>li>ul>li a:hover,#cssmenuv,#carrito {
+#cssmenuh,#cssmenuh>ul>li>ul>li a:hover,#cssmenuv,#carrito {
 	background: #000033;
 	background: -moz-linear-gradient(top, #000033 0%, #45b2d2 100%);
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #000033),
@@ -148,23 +148,24 @@
 	background: #3f3f3f;
 }
 
-
 #carrito {
 	float: right;
-	margin: 30px 0px 0px 10px;	
+	margin: 30px 0px 0px 10px;
+	border-left: 2px solid silver;
 }
-
 
 #cssmenuv {
 	float: left;
 	margin: 30px 40px 0px 0px;
+	border-right: 2px solid silver;
 }
 
-#cssmenuv span{
+#cssmenuv span {
 	text-align: center;
 }
 
 #cssmenuv,#carrito {
+	border-color: #000033;
 	font: bold 15px/100% Arial, Helvetica, sans-serif;
 	color: #fff;
 	text-align: center;
@@ -176,8 +177,6 @@
 	background-position: center;
 	padding: 10px 90px 1em 0;
 	margin-bottom: 2em;
-
-	border-right: 2px solid silver;
 }
 
 #cssmenuv>ul>li>a,#carrito>ul>li>p {
@@ -201,7 +200,7 @@
 	text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.5);
 }
 
-#cssmenuv {
+#cssmenuv,#carrito {
 	border-color: #000033;
 }
 
@@ -235,22 +234,24 @@
 	z-index: 99999;
 }
 
-
 #content {
-    width:10px;
-    min-height:50px;
+	width: 10px;
+	min-height: 50px;
 }
-a:link, a:visited {
-    color:#27b;
-    text-decoration:none;
+
+a:link,a:visited {
+	color: #27b;
+	text-decoration: none;
 }
+
 a:hover {
-    text-decoration:underline;
+	text-decoration: underline;
 }
+
 a img {
-    border-width:0;
+	border-width: 0;
 }
-	
+
 /* #topnav { */
 /*     padding:10px 0px 12px; */
 /*     font-size:11px; */
@@ -304,7 +305,6 @@ a img {
 /*     background-image:url("images/toggle_up_dark.png"); */
 /*     color:#789; */
 /* } */
-
 
 /* #signin_menu { */
 /*     -moz-border-radius-topleft:5px; */
