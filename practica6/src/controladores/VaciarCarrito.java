@@ -31,7 +31,7 @@ public class VaciarCarrito extends HttpServlet {
 		HttpSession sesion = request.getSession();
 		ArrayList<Comprado> comprados = (ArrayList<Comprado>) request
 				.getAttribute("comprados");
-		int id = Integer.parseInt(request.getParameter("idprodcto"));
+		int id = Integer.parseInt(request.getParameter("idproducto"));
 		int i = 0;
 		for (Comprado comprado : comprados) {
 			if (comprado.getId() == id) {
