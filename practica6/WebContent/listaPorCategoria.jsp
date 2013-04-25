@@ -14,7 +14,7 @@
 					<th>Descripcion General</th>
 					<th>Agregar al Carrito</th>	
 				</tr>
-				<c:forEach var="prod" items="${ sessionScope.listaPorCategoria }">
+				<c:forEach var="prod" items="${ sessionScope.listaProductos }">
 					<form
 						action="http://localhost:8080/practica6/LlenarCarrito?idproducto=${prod.id}" method="post">
 						<tr>
