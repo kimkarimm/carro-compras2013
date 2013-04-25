@@ -37,7 +37,6 @@
 <script type="text/javascript" src="js/jquery.js"></script>
 <script type="text/javascript" src="js/easySlider1.7.js"></script>
 
- 
 <script type="text/javascript">
     $(document).ready(function(){  
         $("#slider").easySlider({
@@ -49,6 +48,11 @@
     });
 </script>
 
+
+
+
+
+<!-- ventanaModelo -->
 
 
 </head>
@@ -111,24 +115,23 @@
 										<h3>
 											<span>Carrito</span>
 										</h3>
-										<form action="http://localhost:8080/practica6/facturar.jsp">
+										<form action="http://localhost:8080/practica6/altaPedido.jsp">
 											<ul>
 												<c:forEach var="comp" items="${sessionScope.comprados}">
 													<li><p style="border-bottom: solid 1px #000033; width: 170px; padding-top: 5px; padding-top: 5px; "><c:out value="${comp.nombre}" /></p></li>
 												</c:forEach>
 											</ul>
 											<div id='postotal'>
-												<h4 style="width: 170px; padding-top: 10px">
+												<h4 style="width: 170px; padding-top: 10px; padding-bottom: 10px">
 													Total:
 													<c:out value="${sessionScope.total}"></c:out>
 												</h4>
 											</div>
 											<br>
 											<div>
-												<c:if test="${sessionScope.usuario.permisos != null}">
-													<input id="posComprar" type="submit" name="facturar"
-														value="Comprar">
-												</c:if>
+
+												<input id="posComprar" type="submit" name="facturar"
+													value="Comprar">
 											</div>
 										</form>
 
