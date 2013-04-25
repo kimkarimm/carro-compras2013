@@ -20,8 +20,8 @@
 						<tr>
 							<td><img src="images/nokia5030.gif" width="150px" height="100px"></td>
 							<td><div align="center" width="350px" min-height="100px"><b><c:out value="${prod.nombre}" /></b></div>
-							<div align="left" width="350px" min-height="100px"><c:out value="${prod.descripcion}" /></div>
-							<div align="left" width="350px" min-height="100px"><b>Precio: </b><u> $<c:out value="${prod.precio}" /></u></div>
+								<div align="left" width="350px" min-height="100px"><c:out value="${prod.descripcion}" /></div>
+								<div align="left" width="350px" min-height="100px"><b>Precio: </b><u> $<c:out value="${prod.precio}" /></u></div>
 							</td>
 							<td align="center"><input type="image" name="enviar"
 								src="images/agregar.png" /></td>
