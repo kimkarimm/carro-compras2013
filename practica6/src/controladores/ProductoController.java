@@ -50,7 +50,7 @@ public class ProductoController extends HttpServlet {
 				getServletContext()
 						.getRequestDispatcher("/listarProductos.jsp").forward(
 								request, response);
-			} else if (accion.equals("listarPorCategoria")) {
+			} else if (accion.equals("listarProductos")) {
 				ProductoDao daoproducto = new ProductoDao();
 				HttpSession sesion = request.getSession();
 				int id = Integer.parseInt(request.getParameter("categoria"));
