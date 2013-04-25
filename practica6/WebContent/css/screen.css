@@ -32,7 +32,7 @@
 		border:1px solid #bae2f0;
 		background:#e3f4f9;	
 		margin:.5em 0;
-		width:674px;
+		width:874px;
 		}	
 			
     /* image replacement */
@@ -65,8 +65,9 @@
 
 /* Easy Slider */
 
-	#slider ul, #slider li,
-	#slider2 ul, #slider2 li{
+
+	#slider ul,#slider li,
+	#slider2 ul,#slider2 li{
 		margin:0;
 		padding:0;
 		list-style:none;
@@ -74,13 +75,14 @@
 	#slider2{
 	margin-top:1em;
 	}
+	
 	#slider li, #slider2 li{ 
 		/* 
 			define width and height of list item (slide)
 			entire slider area will adjust according to the parameters provided here
 		*/ 
-		width:696px;
-		height:241px;
+		width:800px;
+		height:300px;
 		overflow:hidden; 
 		}	
 	#prevBtn, #nextBtn,p 
@@ -102,10 +104,10 @@
 		position:relative;
 		width:30px;
 		height:77px;
-		background:url(../images/btn_prev.gif) no-repeat 0 0;	
+		background:url("images/btn_prev.gif") no-repeat 0 0;	
 		}	
 	#nextBtn a, #slider1next a{ 
-		background:url(../images/btn_next.gif) no-repeat 0 0;	
+		background:url("images/btn_next.gif") no-repeat 0 0;	
 		}	
 		
 	/* numeric controls */	

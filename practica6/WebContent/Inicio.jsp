@@ -6,7 +6,7 @@
 								<ul>				
 									<li><img style="height:300px" src="images/01.jpg" alt="Css Template Preview" /></a></li>
 									<li><img style="height:300px" src="images/02.jpg" alt="Css Template Preview" /></a></li>
-									<li><img  style="height:300px" src="images/03.jpg" alt="Css Template Preview" /></a></li>
+									<li><img style="height:300px" src="images/03.jpg" alt="Css Template Preview" /></a></li>
 									<li><img style="height:300px" src="images/04.jpg" alt="Css Template Preview" /></a></li>
 									<li><img style="height:300px" src="images/05.jpg" alt="Css Template Preview" /></a></li>			
 								</ul>
