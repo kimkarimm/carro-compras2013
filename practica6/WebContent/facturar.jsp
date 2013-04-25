@@ -5,18 +5,18 @@
 		<center>
 			<h3>Factura</h3>
 		</center>
-		<table border="1">
+		<table rules="all" border="1">
 			<tr>
-				<th width="200px">Usuario:</th>
-				<td><c:out value="${sessionScope.usuario.apellido}"></c:out>
+				<th  width="220px" align="left">Usuario:</th>
+				<td  width="200px" align="left"><c:out value="${sessionScope.usuario.apellido}"></c:out>
 					<c:out value="${sessionScope.usuario.nombre}"></c:out></td>
 			</tr>
 			<tr>
-				<th width="200px">Mail:</th>
+				<th align="left">Mail:</th>
 				<td><c:out value="${sessionScope.usuario.mail }"></c:out></td>
 			</tr>
 			<tr>
-				<th width="200px">Fecha de pedido</th>
+				<th align="left">Fecha de pedido</th>
 				<td><script>
 					var mydate=new Date();
 					var year=mydate.getYear();
@@ -33,19 +33,19 @@
 				</script></td>
 			</tr>
 			<tr>
-				<tg width="200px">Fecha de Entrega Programada</tg>
+				<th align="left">Fecha de Entrega Programada</th>
 				<td>10 Dias habiles</td>
 			</tr>
 		</table>
 		<br>
 
 		<div id="centrar">
-		<table cellpadding="5" cellspacing="5" border="1">
+		<table rules="all" border="2">
 			<tr>
-				<th>Nombre</th>
-				<th>Cantidad</th>
-				<th>Precio Unitario</th>
-				<th>Subtotal</th>
+				<th width="500px">Nombre</th>
+				<th width="50px">Cantidad</th>
+				<th width="70px">Precio Unitario</th>
+				<th width="80px">Subtotal</th>
 			</tr>
 			<c:forEach var="comprados" items="${sessionScope.comprados}">
 						<tr align="left">
@@ -57,12 +57,12 @@
 			</c:forEach>
 		</table>
 			
-		<table>		
-			<br>	
+		<table>			
 			<tr>
-				<td></td>
-				<td>Total</td>
-				<td>"${sessioScope.comprados.total}"</td>
+				<td width="500px"></td>
+				<td width="60px"></td>
+				<td width="70px">Total: </td>
+				<td width="80px">$<c:out value="${sessionScope.total}"></c:out></td>
 			</tr>
 		</table>
 	</div>
