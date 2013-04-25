@@ -1,5 +1,5 @@
 
-<%@ include file="menu.jsp"%>
+<%@ include file="menu.jsp"%> 
 <form
 	action="http://localhost:8080/practica6/PedidoController?accion=guardar&usuario=${sessionScope.usuario.id}
 			&estado=pendiente&fechaPedido=daym+'/'+month+'/'+year&fechaEntrega=10dias"
