@@ -50,13 +50,13 @@ public class ProductoController extends HttpServlet {
 				getServletContext()
 						.getRequestDispatcher("/listarProductos.jsp").forward(
 								request, response);
-			} else if (accion.equals("listarProductos")) {
+			} else if (accion.equals("listarPorCategoria")) {
 				ProductoDao daoproducto = new ProductoDao();
 				HttpSession sesion = request.getSession();
 				int id = Integer.parseInt(request.getParameter("categoria"));
 				List<Producto> listaproducto = daoproducto
 						.listar("categoria_id=" + id);
-				sesion.setAttribute("listaPorCategoria", listaproducto);
+				sesion.setAttribute("listaProductos", listaproducto);
 				getServletContext().getRequestDispatcher(
 						"/listaPorCategoria.jsp").forward(request, response);
 			} else if (accion.equals("buscar")) {
