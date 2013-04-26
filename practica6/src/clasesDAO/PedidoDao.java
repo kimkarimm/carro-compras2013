@@ -27,11 +27,11 @@ public class PedidoDao extends ManejadorDB {
 				+ p.getFechaPedido()
 				+ "', '"
 				+ p.getEstado()
-				+ "', "
-				+ "'"
+				+ "', '"
 				+ p.getFechaEntrega()
 				+ "', "
-				+ p.getUsuario().getId() + ");";
+				+ p.getUsuario().getId()
+				+ ");";
 		PreparedStatement sentencia = con.prepareStatement(sql,
 				Statement.RETURN_GENERATED_KEYS);
 		sentencia.executeUpdate();
