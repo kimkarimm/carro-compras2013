@@ -7,7 +7,7 @@
 		</h1>
 	</center>
 	<div>
-		<table>
+		<table cellpadding="5" cellspacing="5" rules="all" border-bottom="3" bordercolor="#23ACF0">
 			<c:forEach var="usr" items="${ sessionScope.listaUsuarios }">
 				<tr>
 					<td><c:out value="${ usr.nombre }" /></td>
