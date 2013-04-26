@@ -7,19 +7,26 @@
 		</h1>
 	</center>
 	<div>
-
 			<div id="centrar">
 				<table cellpadding="5" cellspacing="5">
 						<tr align="left">
+							<th>Nombre</th>
+							<th>Apellido</th>
 							<th>Fecha de Pedido</th>
 							<th>Fecha de entrega</th>
 							<th>Estado</th>
+							<th>Productos</th>
 						</tr>
 					<c:forEach var="lista" items="${ sessionScope.listaPedidos}">
 						<tr align="left">
+							<td><c:out value="${lista.usuario.nombre}" /></td>
+							<td><c:out value="${lista.usuario.apellido}" /></td>
 							<td><c:out value="${lista.fechaPedido}" /></td>
 							<td><c:out value="${lista.fechaEntrega}" /></td>
-							<td><c:out value="${lista.estado}" /></td>
+							<td><c:out value="${lista.estado}"/></td>
+							<c:forEach var="prod" items="${ sessionScope.listaPedidos.productos }">
+								
+							</c:forEach>
 						</tr>
 					</c:forEach>
 				</table>

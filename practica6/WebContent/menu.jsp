@@ -16,6 +16,7 @@
 <link href="estilo1.css" rel="stylesheet" type="text/css">
 <link href="estilo.css" rel="stylesheet" type="text/css">
 <link href="style.css" rel="stylesheet" type="text/css">
+<link href="css/form.css" rel="stylesheet" type="text/css">
 <link href="estiloForm.css" rel="stylesheet" type="text/css">
 <link href="css/screen.css" rel="stylesheet" type="text/css">
 
@@ -129,9 +130,14 @@
 											</div>
 											<br>
 											<div>
-
+											<c:if test="${ sessionScope.usuario.id != null}">
 												<input id="posComprar" type="submit" name="facturar"
 													value="Comprar">
+											</c:if>
+											<c:if test="${ sessionScope.usuario.id == null}">
+												<a href="http://localhost:8080/practica6/loginUsr.jsp"><input id="posComprar" type="button" name="verCarrito"
+													value="Ver Carrito"></a>
+											</c:if>
 											</div>
 										</form>
 

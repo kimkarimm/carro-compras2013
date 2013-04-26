@@ -258,3 +258,9 @@ li.horizontal {
 	position: absolute;
 	top: 5px;
 }
+
+#titulo{
+	 font-family: cursive; 
+	-webkit-box-shadow: inset 0px 1px 3px #bbb;
+	-moz-box-shadow: inset 0px 1px 3px #bbb;
+}
