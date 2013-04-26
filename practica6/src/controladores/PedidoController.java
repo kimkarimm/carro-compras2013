@@ -3,6 +3,7 @@ package controladores;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -37,6 +38,12 @@ public class PedidoController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
+	protected String getFecha() {
+		Date fecha = new Date();
+		String fechaActual = new String((fecha.getDay() + 21) + "/"
+				+ (fecha.getMonth() + 1) + "/" + (fecha.getYear() + 1900));
+		return fechaActual;
+	}
 
 	protected void processRequest(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
@@ -84,8 +91,7 @@ public class PedidoController extends HttpServlet {
 				int idusuario = Integer.parseInt(request
 						.getParameter("usuario"));
 				Usuario usuario = daousuario.buscar(idusuario);
-				String fechaPedido = new String(
-						(String) request.getParameter("fechaPedido"));
+				String fechaPedido = new String(getFecha());
 				String fechaEntrega = new String(
 						(String) request.getParameter("fechaEntrega"));
 				ArrayList<Comprado> comprados = new ArrayList<>();
@@ -102,10 +108,13 @@ public class PedidoController extends HttpServlet {
 					producto = daoproducto.buscar(id);
 					productos.add(producto);
 				}
-				ArrayList<Comprado> detalle = new ArrayList<>(comprados);
-				sesion.setAttribute("detalle", detalle);
-				comprados.clear();
-				sesion.setAttribute("comprados", comprados);
+				double totalPedido = (double) sesion.getAttribute("total");
+				sesion.setAttribute("totalPedido", totalPedido);
+				sesion.setAttribute("detalle", comprados);
+				double total = 0;
+				sesion.setAttribute("total", total);
+				ArrayList<Comprado> nuevaCompra = new ArrayList<>();
+				sesion.setAttribute("comprados", nuevaCompra);
 				getServletContext().getRequestDispatcher("/facturar.jsp")
 						.forward(request, response);
 			} else if (accion.equals("eliminar")) {
