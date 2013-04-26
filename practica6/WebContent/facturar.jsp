@@ -47,7 +47,7 @@
 				<th width="70px">Precio Unitario</th>
 				<th width="80px">Subtotal</th>
 			</tr>
-			<c:forEach var="comprados" items="${sessionScope.comprados}">
+			<c:forEach var="comprados" items="${sessionScope.dettalle}">
 						<tr align="left">
 							<td><c:out value="${comprados.nombre}" /></td>
 							<td><c:out value="${comprados.cantidad}" /></td>
