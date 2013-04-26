@@ -28,28 +28,33 @@ public class VaciarCarrito extends HttpServlet {
 
 	protected void processRequest(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-		HttpSession sesion = request.getSession();
-		ArrayList<Comprado> comprados = (ArrayList<Comprado>) request
-				.getAttribute("comprados");
-		int id = Integer.parseInt(request.getParameter("idproducto"));
-		int i = 0;
-		for (Comprado comprado : comprados) {
-			if (comprado.getId() == id) {
-				comprado.setCantidad(comprado.getCantidad() - 1);
-				if (comprado.getCantidad() == 0) {
-					comprados.remove(i);
-					break;
-				} else {
-					comprados.get(i).setCantidad(comprado.getCantidad());
-					break;
+		try {
+			HttpSession sesion = request.getSession();
+			ArrayList<Comprado> comprados = (ArrayList<Comprado>) sesion
+					.getAttribute("comprados");
+			int id = Integer.parseInt(request.getParameter("idproducto"));
+			int i = 0;
+			for (Comprado comprado : comprados) {
+				if (comprado.getId() == id) {
+					comprado.setCantidad(comprado.getCantidad() - 1);
+					if (comprado.getCantidad() == 0) {
+						comprados.remove(i);
+						break;
+					} else {
+						comprados.get(i).setCantidad(comprado.getCantidad());
+						break;
+					}
 				}
+				i++;
 			}
-			i++;
+			sesion.setAttribute("comprados", comprados);
+			getServletContext().getRequestDispatcher("/altaPedido.jsp")
+					.forward(request, response);
+		} catch (Exception error) {
+			error.printStackTrace();
+			response.sendRedirect("vistas/web_mensaje.jsp?mensaje="
+					+ error.getMessage());
 		}
-		sesion.setAttribute("comprados", comprados);
-		getServletContext().getRequestDispatcher("/altaPedido.jsp").forward(
-				request, response);
-		// redireccionar a lista de comprados...
 	}
 
 	/**
