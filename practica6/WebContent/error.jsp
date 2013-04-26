@@ -6,7 +6,7 @@
 					Intentelo de nuevo
 		</h3>
 		</center>
-		<%@ include file="login.jsp" %>
+		<%@ include file="loginForm.jsp" %>
 	<br> <br>
 	</div>
 
