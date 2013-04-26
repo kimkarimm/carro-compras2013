@@ -260,7 +260,7 @@ li.horizontal {
 }
 
 #titulo{
-	 font-family: cursive; 
+	 font: sans-serif; 
 	-webkit-box-shadow: inset 0px 1px 3px #bbb;
 	-moz-box-shadow: inset 0px 1px 3px #bbb;
 }

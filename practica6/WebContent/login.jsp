@@ -15,7 +15,7 @@
 										<label for="password">Password</label> <input type="password"
 											name="pass" id="password" />
 									</fieldset>
-									<input type="submit" id="login" value="Sign in" /> <label
+									<input type="submit" class="botonEnviar" value="Sign in" /> <label
 										for="checkbox"><input type="checkbox" id="checkbox" />Recordarme</label>
 								</fieldset>
 								<span><a href="#">Olvidó su contraseña?</a></span>
@@ -24,3 +24,32 @@
 					</div>
 				</div>
 			</div>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+<script type="text/javascript">
+	$(document).ready(function() {
+	$('#imagenesC').coinslider({ width: 980, hoverPause: false, navigation: true });
+	$(".botonEnviar").click(function(){
+	if ($("#email").val() == ""){
+	alert('Debe ingresar el nombre');
+	return;
+	}
+	if ($("#password").val() == ""){
+	alert('Debe ingresar la password');
+	return;
+	}
+	if (isNaN($("#dni").val())){
+	alert('El dni debe contener solo nÃºmeros');
+	return;
+	} 
+	$("#botonEnviar").submit(); 
+	});
+	});
+</script>	

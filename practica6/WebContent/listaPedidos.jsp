@@ -8,7 +8,7 @@
 	</center>
 	<div>
 			<div id="centrar">
-				<table cellpadding="5" cellspacing="5">
+				<table  cellpadding="5" cellspacing="5" rules="all" border-bottom="3" bordercolor="#23ACF0">
 						<tr align="left">
 							<th>Nombre</th>
 							<th>Apellido</th>
@@ -24,9 +24,7 @@
 							<td><c:out value="${lista.fechaPedido}" /></td>
 							<td><c:out value="${lista.fechaEntrega}" /></td>
 							<td><c:out value="${lista.estado}"/></td>
-							<c:forEach var="prod" items="${ sessionScope.listaPedidos.productos }">
-								
-							</c:forEach>
+							<td><a href="http://localhost:8080/practica6/verProductos.jsp?accion=buscar&pedido=${ lista.id }">--> ver Productos</a></td>							
 						</tr>
 					</c:forEach>
 				</table>
