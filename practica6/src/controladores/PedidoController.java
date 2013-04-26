@@ -102,8 +102,8 @@ public class PedidoController extends HttpServlet {
 					producto = daoproducto.buscar(id);
 					productos.add(producto);
 				}
-				ArrayList<Comprado> dettalle = comprados;
-				sesion.setAttribute("detalle", dettalle);
+				ArrayList<Comprado> detalle = new ArrayList<>(comprados);
+				sesion.setAttribute("detalle", detalle);
 				comprados.clear();
 				sesion.setAttribute("comprados", comprados);
 				getServletContext().getRequestDispatcher("/facturar.jsp")
