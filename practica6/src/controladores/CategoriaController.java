@@ -69,14 +69,13 @@ public class CategoriaController extends HttpServlet {
 				Categoria categoria = new Categoria(nombre);
 				boolean cargado = daocategoria.guardar(categoria);
 				if (cargado) {
-					sesion.setAttribute("cargada", false);
+					List<Categoria> listaCategoria = daocategoria.listar();
+					sesion.setAttribute("listaCategorias", listaCategoria);
+					getServletContext().getRequestDispatcher(
+							"/elementoCargado.jsp").forward(request, response);
 				} else {
 					sesion.setAttribute("cargada", true);
 				}
-				List<Categoria> listaCategoria = daocategoria.listar();
-				sesion.setAttribute("listaCategorias", listaCategoria);
-				getServletContext().getRequestDispatcher("/altaCategoria.jsp")
-						.forward(request, response);
 
 			} else if (accion.equals("eliminar")) {
 				HttpSession sesion = request.getSession();

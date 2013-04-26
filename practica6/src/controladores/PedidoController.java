@@ -102,7 +102,6 @@ public class PedidoController extends HttpServlet {
 					producto = daoproducto.buscar(id);
 					productos.add(producto);
 				}
-				sesion.setAttribute("productos", productos);
 				getServletContext().getRequestDispatcher("/facturar.jsp")
 						.forward(request, response);
 			} else if (accion.equals("eliminar")) {
