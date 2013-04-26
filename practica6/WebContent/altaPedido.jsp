@@ -28,7 +28,7 @@
 							height="100px"></td>
 						<td><div align="center" width="350px" min-height="100px">
 								<b><c:out value="${comprado.nombre}" /></b>
-							</div>
+							</div> 
 							<div align="left" width="350px" min-height="100px">
 								<b>Precio: $</b><u><c:out value="${comprado.precio}" /></u>
 							</div>
