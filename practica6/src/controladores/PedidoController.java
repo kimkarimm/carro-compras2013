@@ -1,5 +1,5 @@
 package controladores;
- 
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -127,22 +127,21 @@ public class PedidoController extends HttpServlet {
 			} else if (accion.equals("modificar")) {
 				HttpSession sesion = request.getSession();
 				PedidoDao daopedido = new PedidoDao();
-				int id = Integer.parseInt(request.getParameter("pedido"));
-				Pedido pedido = daopedido.buscar(id);
-				pedido.setEstado(request.getParameter("estado"));
-				String fechaEntrega = new String(
-						request.getParameter("fechaEntrega"));
-				pedido.setFechaEntrega(fechaEntrega);
-				String fechaPedido = new String(
-						request.getParameter("fechaPedido"));
-				pedido.setFechaPedido(fechaPedido);
-				ArrayList<Comprado> productos = (ArrayList<Comprado>) sesion
-						.getAttribute("productos");
-				pedido.setProductos(productos);
-				daopedido.modificar(pedido);
-				getServletContext()
-						.getRequestDispatcher("/modificarPedido.jsp").forward(
-								request, response);
+				ArrayList<Pedido> pedidos = (ArrayList<Pedido>) sesion
+						.getAttribute("listaPedidos");
+				int i = 0;
+				for (Pedido pedido : pedidos) {
+					if (!pedido.getEstado().equals("entregado")) {
+						String estado = (String) request.getParameter(""
+								+ pedido.getId() + "");
+						pedidos.get(i).setEstado(estado);
+						daopedido.modificar(pedidos.get(i));
+					}
+					i++;
+				}
+				sesion.setAttribute("listaPedidos", pedidos);
+				getServletContext().getRequestDispatcher("/listaPedidos.jsp")
+						.forward(request, response);
 			}
 		} catch (Exception error) {
 			error.printStackTrace();
