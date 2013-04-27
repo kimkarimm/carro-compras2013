@@ -68,7 +68,7 @@ public class LlenarCarrito extends HttpServlet {
 				comprados.add(comp);
 			}
 			sesion.setAttribute("comprados", comprados);
-			getServletContext().getRequestDispatcher("/listaPorCategoria.jsp")
+			getServletContext().getRequestDispatcher("/listarProductos.jsp")
 					.forward(request, response);
 		} catch (Exception error) {
 			error.printStackTrace();

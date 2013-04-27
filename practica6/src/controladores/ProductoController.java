@@ -58,7 +58,7 @@ public class ProductoController extends HttpServlet {
 						.listar("categoria_id=" + id);
 				sesion.setAttribute("listaProductos", listaproducto);
 				getServletContext().getRequestDispatcher(
-						"/listaPorCategoria.jsp").forward(request, response);
+						"/listarProductos.jsp").forward(request, response);
 			} else if (accion.equals("buscar")) {
 				HttpSession sesion = request.getSession();
 				ProductoDao daoproducto = new ProductoDao();
