@@ -1,7 +1,6 @@
-
 <%@ include file="menu.jsp"%>
 <form
-	action="http://localhost:8080/practica6/PedidoController?accion=modificar&listaPedidos=${ sessionScope.listaPedidos }"
+	action="http://localhost:8080/practica6/PedidoController?accion=modificar"
 	method="post">
 	<div class="contacto">
 		<center>
@@ -27,15 +26,26 @@
 							<td><c:out value="${pedido.usuario.apellido}" /></td>
 							<td><c:out value="${pedido.fechaPedido}" /></td>
 							<td><c:out value="${pedido.fechaEntrega}" /></td>
-							<c:if test="${ pedido.estado == 'pendiente'}">
-								<td><select name='${ pedido.id }'>
-										<option value="pendiente" selected="selected">Pendiente</option>
-										<option value="entregado">Entregado</option>
-										<option value="eetrasado">Retrasado</option>
-								</select></td>
+							<c:if test="${sessionScope.usuario.permisos == 1}">
+								<c:if test="${ pedido.estado == 'entregado'}">
+									<td>entregado</td>
+								</c:if>
+								<c:if test="${ pedido.estado == 'pendiente'}">
+									<td><select name='${ pedido.id }'>
+											<option value="pendiente" selected="selected">Pendiente</option>
+											<option value="entregado">Entregado</option>
+											<option value="retrasado">Retrasado</option>
+									</select></td>
+								</c:if>
+								<c:if test="${ pedido.estado == 'retrasado'}">
+									<td><select name='${ pedido.id }'>
+											<option value="retrasado" selected="selected">Retrasado</option>
+											<option value="entregado">Entregado</option>
+									</select></td>
+								</c:if>
 							</c:if>
-							<c:if test="${ pedido.estado != 'pendiente'}">
-								<td><c:out value="${lista.estado}" /></td>
+							<c:if test="${sessionScope.usuario.permisos == 0}">
+								<td><c:out value="${pedido.estado}"></c:out></td>
 							</c:if>
 							<td><a
 								href="http://localhost:8080/practica6/verProductos.jsp?accion=buscar&pedido=${ pedido.id }">->
@@ -50,4 +60,4 @@
 		</div>
 	</div>
 </form>
-		<%@ include file="pie.jsp"%>
+<%@ include file="pie.jsp"%>

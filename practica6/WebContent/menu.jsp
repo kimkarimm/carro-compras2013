@@ -14,18 +14,19 @@
 <html>
 
 <head>
-<link rel="stylesheet" type="text/css" href="estilo.css" title="style" />
-<link href="estilo1.css" rel="stylesheet" type="text/css">
-<link href="estilo.css" rel="stylesheet" type="text/css">
-<link href="style.css" rel="stylesheet" type="text/css">
+<!-- <link rel="stylesheet" type="text/css" href="estilo.css" title="style" /> -->
+<link href="css/estilo1.css" rel="stylesheet" type="text/css">
+<link href="css/estilo.css" rel="stylesheet" type="text/css">
+<link href="css/style.css" rel="stylesheet" type="text/css">
 <link href="css/form.css" rel="stylesheet" type="text/css">
-<link href="estiloForm.css" rel="stylesheet" type="text/css">
 <link href="css/screen.css" rel="stylesheet" type="text/css">
+<!-- <link href="estiloForm.css" rel="stylesheet" type="text/css"> -->
+
 
 <script
 	src='http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js'></script>
-<script src='funciones.js'></script>
-<script src='login.js'></script>
+<script src='js/funciones.js'></script>
+<script src='js/login.js'></script>
 <style type="text/css"></style>
 <title>Tienda digital</title>
 

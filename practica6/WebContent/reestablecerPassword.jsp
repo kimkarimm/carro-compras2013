@@ -1,28 +1,33 @@
 <%@ include file="menu.jsp"%>
 <div class="contacto">
-	<div  id="login">
-	<center>
-		<h3>¿Ha olvidado su contraseña?</h3>
-		<br> <br> <span> Si ha olvidado su contraseña,
-			introduzca su dirección de e-mail y le enviaremos un mensaje con
-			una contraseña nueva.</span>
-		<fieldset>
-		<br><br>
-		<table>
-			<tr>
+	<div id="login">
+		<div id="titulo">
+			<center>
+				<h3>¿Ha olvidado su contraseña?</h3>
+				<br> <br> <span> Si ha olvidado su contraseña,
+					introduzca su dirección de e-mail y le enviaremos un mensaje con
+					una contraseña nueva.</span>
 				<fieldset>
-					<td><label for="email">E-mail </label></td>
-					<td><input type="text" name="email" id="email" /></td>
+					<br> <br>
+					<form>
+						<table>
+							<tr>
+								<fieldset>
+									<td><label for="email">E-mail </label></td>
+									<td><input type="text" name="email" value='' required /></td>
+								</fieldset>
+							</tr>
+							<tr>
+								<td></td>
+								<td  class="boton"><input name="enviar" type="button"
+									onclick='alert("El mensaje fue enviado correcctamente")'
+									value="Enviar" /></td>
+							<tr>
+						</table>
+					</form>
 				</fieldset>
-			</tr>
-			<tr>
-			<td></td><td><input type="button" id="sing" value="Sign in" /></td><tr>
-		</table>
-	</fieldset>
-	</center>
+			</center>
+		</div>
+	</div>
 </div>
-	<br> <br>
-</div>
-
-
 <%@ include file="pie.jsp"%>

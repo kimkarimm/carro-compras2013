@@ -66,5 +66,9 @@
 				</tr>
 			</table>
 		</div>
+		<div align="right">
+			<a href="javascript:print()"><input type="image" name="imprimir"
+				alt="imprimir" src="images/imprimir.gif"/></a>
+		</div>
 	</div>
 	<%@ include file="pie.jsp"%>
