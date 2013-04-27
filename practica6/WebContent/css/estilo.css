@@ -208,13 +208,13 @@ li.horizontal {
 
 #posComprar {
 	display: inline-block;
-	margin-bottom: 1px;
+	margin-top:20px;
+	margin-left:20px;
+	margin-bottom: 10px;
 	width: auto;
 	height: 30px;
 	padding: 2px 2px 2px 2px;
-	z-index: 99999;
-	float: right;
-	bottom: 90px;
+	float: inherit;
 }
 
 #posLogin,#posComprar {
