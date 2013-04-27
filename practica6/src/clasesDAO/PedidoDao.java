@@ -74,9 +74,9 @@ public class PedidoDao extends ManejadorDB {
 					+ p.getId();
 			sentencia = con.prepareStatement(sql);
 			ResultSet idProductos = sentencia.executeQuery();
+			ProductoDao pDao = new ProductoDao();
 			while (idProductos.next()) {
 				Producto product = new Producto();
-				ProductoDao pDao = new ProductoDao();
 				product = pDao.buscar(idProductos.getInt("producto_id"));
 				Comprado comprado = new Comprado(product.getId(),
 						product.getNombre(), product.getPrecio(),
@@ -107,24 +107,11 @@ public class PedidoDao extends ManejadorDB {
 		this.conectarDB();
 		String sql = "UPDATE pedido SET fecha_pedido='" + p.getFechaPedido()
 				+ "', estado='" + p.getEstado() + "'," + " fecha_entrega='"
-				+ p.getFechaEntrega() + "', usuario_id='" + "' WHERE id="
-				+ p.getId() + ";";
+				+ p.getFechaEntrega() + "', usuario_id="
+				+ p.getUsuario().getId() + " WHERE id=" + p.getId() + ";";
 		PreparedStatement sentencia = con.prepareStatement(sql);
 		sentencia.executeUpdate();
-		sql = "DELETE FROM pedido_has_producto WHERE pedido_id=" + p.getId()
-				+ ";";
-		sentencia = con.prepareStatement(sql);
-		sentencia.executeUpdate();
-		int n = 0;
-		while (n < p.getProductos().size()) {
-			sql = "INSERT INTO pedido_has_producto (pedido_id, producto_id) VALUES ("
-					+ p.getId() + ", " + p.getProductos().get(n).getId() + ");";
-			sentencia = con.prepareStatement(sql);
-			sentencia.executeUpdate();
-			n++;
-		}
 		this.cerrarConexion();
-
 	}
 
 	public Pedido buscar(int id) throws SQLException {
