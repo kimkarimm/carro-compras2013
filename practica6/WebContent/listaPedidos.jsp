@@ -30,8 +30,8 @@
 							<c:if test="${ pedido.estado == 'pendiente'}">
 								<td><select name='${ pedido.id }'>
 										<option value="pendiente" selected="selected">Pendiente</option>
-										<option value="Entregado">Entregado</option>
-										<option value="Retrasado">Retrasado</option>
+										<option value="entregado">Entregado</option>
+										<option value="eetrasado">Retrasado</option>
 								</select></td>
 							</c:if>
 							<c:if test="${ pedido.estado != 'pendiente'}">
