@@ -1,4 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@page import="java.util.ArrayList"%>
+<%@page import="modelo.Comprado"%>
 <%@page
 	import="com.sun.org.apache.xalan.internal.xsltc.runtime.Hashtable"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
@@ -21,7 +23,7 @@
 <link href="css/screen.css" rel="stylesheet" type="text/css">
 
 <script
- src='http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js'></script>
+	src='http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js'></script>
 <script src='funciones.js'></script>
 <script src='login.js'></script>
 <style type="text/css"></style>
@@ -29,7 +31,8 @@
 
 
 
-<link href="http://code.jquery.com/ui/1.9.0/themes/base/jquery-ui.css" rel="stylesheet"/>
+<link href="http://code.jquery.com/ui/1.9.0/themes/base/jquery-ui.css"
+	rel="stylesheet" />
 
 
 <script src="javascripts/jquery.js" type="text/javascript"></script>
@@ -39,14 +42,14 @@
 <script type="text/javascript" src="js/easySlider1.7.js"></script>
 
 <script type="text/javascript">
-    $(document).ready(function(){  
-        $("#slider").easySlider({
-            auto: true,
-            continuous: true,
-            nextId: "slider1next",
-            prevId: "slider1prev"
-        });
-    });
+	$(document).ready(function() {
+		$("#slider").easySlider({
+			auto : true,
+			continuous : true,
+			nextId : "slider1next",
+			prevId : "slider1prev"
+		});
+	});
 </script>
 
 
@@ -61,9 +64,9 @@
 	<div id="wrapper">
 		<div id="header" class="clearfix">
 			<div class="h_left"></div>
-						<center>
-							<a><img src="images/encabezado.jpg" alt=""></a>
-						</center>
+			<center>
+				<a><img src="images/encabezado.jpg" alt=""></a>
+			</center>
 
 			<div class="titulo">
 				<h1 align="center"></h1>
@@ -119,25 +122,38 @@
 										<form action="http://localhost:8080/practica6/altaPedido.jsp">
 											<ul>
 												<c:forEach var="comp" items="${sessionScope.comprados}">
-													<li><p style="border-bottom: solid 1px #000033; width: 170px; padding-top: 5px; padding-top: 5px; "><c:out value="${comp.nombre}" /></p></li>
+													<li><p
+															style="border-bottom: solid 1px #000033; width: 170px; padding-top: 5px; padding-top: 5px;">
+															<c:out value="${comp.nombre}" />
+														</p></li>
 												</c:forEach>
 											</ul>
 											<div id='postotal'>
-												<h4 style="width: 170px; padding-top: 10px; padding-bottom: 10px">
+												<h4
+													style="width: 170px; padding-top: 10px; padding-bottom: 10px">
 													Total:
 													<c:out value="${sessionScope.total}"></c:out>
 												</h4>
 											</div>
 											<br>
 											<div>
-											<c:if test="${ sessionScope.usuario.id != null}">
-												<input id="posComprar" type="submit" name="facturar"
-													value="Comprar">
-											</c:if>
-											<c:if test="${ sessionScope.usuario.id == null}">
-												<a href="http://localhost:8080/practica6/loginUsr.jsp"><input id="posComprar" type="button" name="verCarrito"
-													value="Ver Carrito"></a>
-											</c:if>
+												<% HttpSession sesion= request.getSession();
+											ArrayList<Comprado> comprados= (ArrayList<Comprado>)sesion.getAttribute("comprados");
+												if(comprados.isEmpty()){%>
+												<a href="http://localhost:8080/practica6/ProductoController?accion=listar"><input
+													id="posComprar" type="button" name="agregarProductos"
+													value="Agregar Productos"></a>
+												<%}else{ %>
+												<c:if test="${ sessionScope.usuario.id != null }">
+													<input id="posComprar" type="submit" name="facturar"
+														value="Comprar">
+												</c:if>
+												<c:if test="${ sessionScope.usuario.id == null}">
+													<a href="http://localhost:8080/practica6/loginUsr.jsp"><input
+														id="posComprar" type="button" name="verCarrito"
+														value="Ver Carrito"></a>
+												</c:if>
+												<%} %>
 											</div>
 										</form>
 
