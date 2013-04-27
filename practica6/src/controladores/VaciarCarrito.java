@@ -32,11 +32,13 @@ public class VaciarCarrito extends HttpServlet {
 			HttpSession sesion = request.getSession();
 			ArrayList<Comprado> comprados = (ArrayList<Comprado>) sesion
 					.getAttribute("comprados");
+			double total = (double) sesion.getAttribute("total");
 			int id = Integer.parseInt(request.getParameter("idproducto"));
 			int i = 0;
 			for (Comprado comprado : comprados) {
 				if (comprado.getId() == id) {
 					comprado.setCantidad(comprado.getCantidad() - 1);
+					total = total - comprado.getPrecio();
 					if (comprado.getCantidad() == 0) {
 						comprados.remove(i);
 						break;
@@ -47,6 +49,7 @@ public class VaciarCarrito extends HttpServlet {
 				}
 				i++;
 			}
+			sesion.setAttribute("total", total);
 			sesion.setAttribute("comprados", comprados);
 			getServletContext().getRequestDispatcher("/altaPedido.jsp")
 					.forward(request, response);
